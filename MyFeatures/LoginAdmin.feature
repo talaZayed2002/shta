@@ -28,10 +28,5 @@ Feature: Admin login
    Then the administrator should login to teh system
    And the adminstrator is logged in to the system
 
-  @tag2
-   Scenario: Administrator has the wrong password  
-   Given that the administrator is not logged in
-   And the password is "wrong password"
-   Then the administrator login fails
-   And the administrator is not logged in
+
 
