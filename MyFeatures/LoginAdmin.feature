@@ -21,12 +21,36 @@ Feature: Admin login
  Description: The Administrator logs into the library system and also logs out
  Actor:Administrator
 
-  @tag1
-  Scenario: Administrator can login to the sysetm
-   Given that the administrator is not logged in to the system  
-   And the password is equal to "12345"
-   Then the administrator should login to teh system
-   And the adminstrator is logged in to the system
+  @testlogin_admin  
+    Scenario Outline: Login admin 
+    Given that the admin is not logged in
+    And I check for the email  and pass <email><pass>
+    Then the admin login is  <status> 
 
+    Examples: 
+      | email             | pass        |status |
+      | "shafiqa@gmail.com"  | "shafiqa123"    |success|
+      | "tala@gmail.com" | "tala1234"   |Fail   |
+     
+     
+      Scenario: Login an admin 
+      Given that an admin is not logged in
+      And I check for the email  and pass email "tala@gmail.com" pass "1234"
+      Then the admin login 
 
+ 
+      Scenario: user  cannot login
+      Given that the user is not logged in
+      And I chek for email and   password is "wrong" "wrong"
+      Then the user log in fails
 
+      #logout 
+      Scenario: Admin log out
+	    Given that the admin is logged in
+	    When the admin logs out
+	    Then the admin is logged out
+
+	    Scenario: user log out
+	    Given that the user is logged in
+	    When the user logs out
+	Then the user is logged out
