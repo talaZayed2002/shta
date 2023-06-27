@@ -116,10 +116,6 @@ public class LoginFeatureSteps {
 
 
 
-
-
-
-
 	@Given("that the admin is logged in")
 	public void that_the_admin_is_logged_in() {
 		flag_login=true;
