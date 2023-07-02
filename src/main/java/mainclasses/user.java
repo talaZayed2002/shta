@@ -10,13 +10,14 @@ public class user {
 	   public  String password;
 	   String phone;
 	   float point=0;
+	   String major;
 	
-		user u1;
- static List <user> userarray=new  ArrayList <user> ();
+		 user u1;
+         static List <user> userarray=new  ArrayList <user> ();
 		 boolean log=false;
-			 static database db=new database();
+		 static database db=new database();
 			
-		 
+	// tenant =user	 
 		 public user()
 		 {
 			 this.initialuser();
@@ -29,6 +30,7 @@ public class user {
 			this.password="1";
 			this.phone="056998521";
 			this.name="ahmadjabe";
+			this.major="Computer Engineering";
 		
 			userarray.add(this);
 				}

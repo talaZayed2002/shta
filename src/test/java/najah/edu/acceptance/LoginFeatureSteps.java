@@ -11,18 +11,21 @@ import static org.junit.Assert.assertFalse;
 
 import mainclasses.admin;
 import mainclasses.user;
-
+import mainclasses.owner;
 public class LoginFeatureSteps {
 
           admin adm;
+          owner own;
 		  
-		  static user user1;
+		 static user user1;
 		
 		static boolean flag_login;
 
-		public LoginFeatureSteps(admin adm1,user user2) {
+		public LoginFeatureSteps(admin adm1,user user2,owner own1) {
 			adm=adm1;
 			user1=user2;
+			own=own1;
+			
 		}
 		
 		@Given("that an admin is not logged in")
@@ -84,6 +87,7 @@ public class LoginFeatureSteps {
 		flag_user=false;
 	}
 	
+
 	
 	@Given("I chek for email and   password is {string} {string}")
 	public void iChekForEmailAndPasswordIs(String string, String string2) {
@@ -114,8 +118,6 @@ public class LoginFeatureSteps {
 
 	}
 
-
-
 	@Given("that the admin is logged in")
 	public void that_the_admin_is_logged_in() {
 		flag_login=true;
@@ -145,6 +147,49 @@ public class LoginFeatureSteps {
 	public void the_user_is_logged_out() {
 		 assertTrue(!flag_user);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	static boolean flag_owner;
+	
+	
+
+	
+	@Given("that the owner is not logged in")
+	public void thatTheOwnerIsNotLoggedIn() {
+	   
+		flag_owner=false;
+	}
+	@Then("the owner log in fails")
+	public void theOwnerLogInFails() {
+		 assertTrue(!flag_owner);
+
+	  
+	}
+
+
+	@Given("that the owner is logged in")
+	public void thatTheOwnerIsLoggedIn() {
+		flag_owner=true;
+	}
+	@When("the owner logs out")
+	public void theOwnerLogsOut() {
+		flag_owner=false;
+	
+	}
+	@Then("the owner is logged out")
+	public void theOwnerIsLoggedOut() {
+		assertTrue(!flag_owner);
+	}
+
+
+
+
 
 
 		}

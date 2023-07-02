@@ -44,13 +44,46 @@ Feature: Admin login
       And I chek for email and   password is "wrong" "wrong"
       Then the user log in fails
 
+
+      Scenario: owner  cannot login
+      Given that the owner is not logged in
+      And I chek for email and   password is "wrong" "wrong"
+      Then the owner log in fails
+
+
       #logout 
       Scenario: Admin log out
 	    Given that the admin is logged in
 	    When the admin logs out
 	    Then the admin is logged out
 
-	    Scenario: user log out
+	    Scenario: user log out 
 	    Given that the user is logged in
 	    When the user logs out
-	Then the user is logged out
+	    Then the user is logged out
+
+
+      Scenario: owner log out 
+	    Given that the owner is logged in
+	    When the owner logs out
+	    Then the owner is logged out
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
