@@ -44,6 +44,14 @@ public class user {
 		}
 		
 		
+		public void signup(String str1,String str2) {
+	       u1.email=str1;
+	       u1.password=str2;
+	       userarray.add(this); // back plz !	
+			
+		}
+		
+		
 
 		
 	}
