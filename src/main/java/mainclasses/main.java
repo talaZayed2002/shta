@@ -34,12 +34,12 @@ static void start1() {
 		      	password=s.nextLine();
 		 
 			break;
-		}
+		}// end case 1
 	
 		default :
 		{
 			logger.info("The enteryis not correct!");
-		}
+		}//end default
 		
 			
 		
