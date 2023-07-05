@@ -16,13 +16,14 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-Feature: Send an email to the user
-	Description: Sending an email to the user that his order is ready and under delivery.
- Actor: company
+Feature: Housing view
+@enter
+Scenario: Tenant views available housing
+Given the tenant is logged in
+When the tenant accesses the housing view
+Then the tenant can see the list of available housing options
 
-   
-	
-Scenario: Send an email to the user.
-	Given that order No. "3" of user No. "3" is ready
-	When order No. "3" is ready and under delivery, an email is sent to the user with hi email address "tahasoftware080@gmail.com" 
-	Then The email was sent successfully
+Scenario: Tenant views detailed information about a housing listing
+Given the tenant is logged in
+When the tenant selects a specific housing listing
+Then the tenant can view pictures of the housing and access information such as prices, location, and available services
