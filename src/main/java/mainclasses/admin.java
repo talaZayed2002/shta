@@ -1,7 +1,10 @@
 package mainclasses;
 
+import java.util.logging.Logger;
+
 public class admin {
-	
+	private static final Logger logger = Logger.getLogger(admin.class.getName());
+
 		 String address;
 		 public String email;
 		 String name;
@@ -12,12 +15,18 @@ public class admin {
 		public static int check(String string1, String string2) {
        if((string1.equals("shafiqa@gmail.com") && string2.equals("shafiqa123")) ||
 					(string1.equals("tala@gmail.com") && string2.equals("tala1234")) )
-					{			
-				return 1;			
+					{	
+			  logger.info("\n u logged in sucessfully as admain"); 
+				return 1;	
 						
 					}
-					
-			return 0;
+       else {
+    	   logger.info("\n admin please try again"); 
+    	   return 0;
+       }
+	
+			
+			
 			
 			
 		}

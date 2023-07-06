@@ -2,7 +2,10 @@ package mainclasses;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 public class user {
+	private static final Logger logger = Logger.getLogger(user.class.getName());
+
        String address;
 	   public String email;
 	   String name;
@@ -36,11 +39,16 @@ public class user {
 				}
 	
 		public static int checkuser(String string1, String string2) {
-			if((string1.equals("minna@gmail.com") && string2.equals("minna67")) )
-					{
+			if((string1.equals("haya@gmail.com") && string2.equals("haya123")) )
+					{			  logger.info("\n u logged in sucessfully as admain"); 
+
 						return 1;
 					}
-			return 0;
+			else {
+		    	   logger.info("\n admin please try again"); 
+				return 0;
+			}
+		
 		}
 		
 		

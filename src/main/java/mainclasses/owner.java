@@ -28,13 +28,13 @@ public class owner {
 	
 		ownerarray.add(this);
    	}
-   	/*public static int checkuser(String string1, String string2) {
+   	public static int checkowner(String string1, String string2) {
 		if((string1.equals("ragheb@gmail.com") && string2.equals("ragheb123")) )
 				{
 					return 1;
 				}
 		return 0;
-	}*/
+	}
 	
 
 
