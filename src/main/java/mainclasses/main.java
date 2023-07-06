@@ -76,7 +76,7 @@ static void start1() {
 	
 		default :
 		{
-			logger.info("The enteryis not correct!");
+			logger.info("The enteryis not correct!.");
 		}//end default
 		
 			
