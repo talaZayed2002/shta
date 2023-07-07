@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class owner {
-	
-       String address;
 	   public String email;
+       public  String password;     
+	   String address;
 	   String name;
-	   String id;
-	   public  String password;
+	   String id;	   
 	   String phone;
+	
 	   owner o;
        static List <owner> ownerarray=new  ArrayList <owner> ();
        boolean log=false;
