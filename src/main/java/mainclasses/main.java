@@ -10,6 +10,10 @@ static Scanner s=new Scanner(System.in);
 static int num ;
 static String email="0";
 static String password="0";
+static String name="0";
+static String major="0";
+static String type="0";
+static int age=0;
 static admin admin1;
 static user user1;
 static owner owner1;
@@ -103,11 +107,11 @@ static void ViewForTenant() {
      {
     		logger.info("Hello student!\n"); 
     		
+    		email=s.nextLine();
     		
     		
     		
-
-    	 
+ 	 
     	 
      } //student
      case 2:

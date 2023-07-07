@@ -8,7 +8,7 @@ public class database {
 	 List <owner> db_product=new ArrayList <owner>();
  private static final Logger logger = Logger.getLogger(database.class.getName());
 
-public  void AddTenant(String email,String password)
+public  void login(String email,String password)
 		{ 
     user obj0=new user();
     db_user.add(obj0);
@@ -43,6 +43,15 @@ public  void AddTenant(String email,String password)
 			
 		}
   
+public  void AddTenantStudent(String email,String password,String name,String type,String major)
+{
 	
+	
+}
+public  void AddTenantNotStudent(String email,String password,String name,String type,String major)
+{
+	type="not student";
+	
+}
 
 }

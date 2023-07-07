@@ -13,9 +13,11 @@ public class user {
 	   public  String password;
 	   String phone;
 	   float point=0;
-	   String major;
-
+	   int age;
 	
+	   String major;
+	   String type; // student or not .
+	  
 		 user u1;
          static List <user> userarray=new  ArrayList <user> ();
 		 boolean log=false;
@@ -30,12 +32,13 @@ public class user {
 		 	
 		public  void initialuser() {
 			this.address="nablus";
-			this.email="ahmad@gmail.com";
+			this.email="sht@gmail.com";
 			this.id="1";
 			this.password="1";
 			this.phone="056998521";
-			this.name="ahmadjabe";
+			this.name="shafiqaTala";
 			this.major="Computer Engineering";
+			this.type="student";
 		
 			userarray.add(this);
 			
@@ -44,13 +47,13 @@ public class user {
 		public static int checkuser(String string1, String string2) {
 			if((string1.equals("haya@gmail.com") && string2.equals("haya123")) )
 					{			  logger.info("\n u logged in sucessfully as tenant"); 
-					db.AddTenant(string1,string2);
+					db.login(string1,string2);
 						return 1;
 						
 					}
 			else {
 				
-				db.AddTenant(string1,string2);
+				db.login(string1,string2);
 		    	
 				
 			}
