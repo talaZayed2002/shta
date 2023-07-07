@@ -13,6 +13,8 @@ static String password="0";
 static admin admin1;
 static user user1;
 static owner owner1;
+static database db;
+
 static void start1() {
 	  logger.info(" \n"+"                                    HELLO\n"+
 	  		      "                            WELCOME TO SAKANCOM \n"+
@@ -50,10 +52,18 @@ static void start1() {
 		while(!(email.contains("@"))) {
 			logger.info("Please this is not an invalid email\n reenter ur email"); 
 			email=s.nextLine();
+			user1.email=email;
+			
 		}		
       logger.info("\nPlease enter your password:"); 
       	password=s.nextLine();	
     	user1.checkuser(email, password);
+      
+       
+
+    	ViewForTenant();
+    	
+    	
 			break;
 			
 		}// end case 2 for tenant(user)
@@ -70,7 +80,8 @@ static void start1() {
 	      logger.info("\nPlease enter your password:"); 
 	      	password=s.nextLine();	
 	    	owner1.checkowner(email, password);
-		
+	    	
+	    	
 			break;
 		} // end of case 3 for owner 
 	
@@ -84,6 +95,33 @@ static void start1() {
 		}//end switch
 		
 }// end start1 function
+static void ViewForTenant() {
+	logger.info("Please determine wheather u r a student or not \n 1-Student 2-Not a student"); 
+     num=s.nextInt();
+     switch(num) {
+     case 1:
+     {
+    		logger.info("Hello student!\n"); 
+    		
+    		
+    		
+    		
+
+    	 
+    	 
+     } //student
+     case 2:
+     {
+    	 
+     }//not student
+     default:
+     {
+    	 
+     }// otherwise
+     }
+	
+}
+
 
 
 public static void main(String[] args) 

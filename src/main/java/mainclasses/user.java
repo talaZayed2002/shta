@@ -14,6 +14,7 @@ public class user {
 	   String phone;
 	   float point=0;
 	   String major;
+
 	
 		 user u1;
          static List <user> userarray=new  ArrayList <user> ();
@@ -24,6 +25,7 @@ public class user {
 		 public user()
 		 {
 			 this.initialuser();
+			
 		 }
 		 	
 		public  void initialuser() {
@@ -36,19 +38,23 @@ public class user {
 			this.major="Computer Engineering";
 		
 			userarray.add(this);
+			
 				}
 	
 		public static int checkuser(String string1, String string2) {
 			if((string1.equals("haya@gmail.com") && string2.equals("haya123")) )
-					{			  logger.info("\n u logged in sucessfully as admain"); 
-
+					{			  logger.info("\n u logged in sucessfully as tenant"); 
+					db.AddTenant(string1,string2);
 						return 1;
+						
 					}
 			else {
-		    	   logger.info("\n admin please try again"); 
-				return 0;
+				
+				db.AddTenant(string1,string2);
+		    	
+				
 			}
-		
+			   return 0;
 		}
 		
 		
