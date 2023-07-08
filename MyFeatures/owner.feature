@@ -152,6 +152,31 @@ Scenario: Owner adds invalid phone number
     And add invalid phone number
     Then the system should display an error message
     And the owner will not be able to the phone number
+#no available resedence 
+Feature: dashboard
+Scenario: Viewing Housing Details
+    Given the owner is logged in to the system
+	And the owner has a choice list
+    When the owner selects the choice to 'dashboard' 
+    And the owner selects a housing from the dashboard
+    Then the number of tenants associated with the housing is displayed
+    And the number of floors in the selected residence is displayed
+Scenario: Viewing Floor Details
+    Given the owner has selected a housing and viewed the housing details
+    When the owner enter a number of specific floor 
+    Then the apartments of the selected floor are displayed
+Scenario: Viewing Apartment Details
+    Given the user has selected a specific floor and viewed the floor details
+    When the user selects a specific apartment 
+    Then the names of the tenants associated with the apartment are displayed
+    And the contact information of the tenants is displayed
+    And the number of bathrooms in the apartment is displayed
+    And the number of bedrooms in the apartment is displayed
+    And the presence of a balcony in the apartment is displayed
+
+
+
+
 
 
 
