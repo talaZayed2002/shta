@@ -152,7 +152,6 @@ Scenario: Owner adds invalid phone number
     And add invalid phone number
     Then the system should display an error message
     And the owner will not be able to the phone number
-#no available resedence 
 Feature: dashboard
 Scenario: Viewing Housing Details
     Given the owner is logged in to the system
