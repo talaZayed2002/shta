@@ -16,8 +16,6 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-
-
 Feature: owner adds photos 
 Scenario: Owner adds photos to the list 
     Given the owner is logged in to the system
