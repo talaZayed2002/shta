@@ -2,7 +2,6 @@ package mainclasses;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class Apartment {	//عمارة 
 	   String id;
 	   String rent;	  

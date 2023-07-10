@@ -252,8 +252,7 @@ static void start1() {
             	 number_of_appartments = s.nextLine();
             	 valid = containsOnlyDigits( number_of_appartments);
              }
-             ap.number_of_apartments=  number_of_appartments ; 
-                         
+             ap.number_of_apartments=  number_of_appartments ;                          
           }          
           //tala	    
 			    	
