@@ -2,18 +2,28 @@ package mainclasses;
 
 import java.util.ArrayList;
 import java.util.List;
-
-public class Apartment {
-	
-
-       String picture;
-	   String price;
-	   String name;
-	   String location;
+public class Apartment {	//عمارة 
+	   String id;
+	   String rent;	  
+       String location; 	   
 	   String water;
 	   String electric;
+	   String balcony;
 	   String internet;
-	   Apartment A;
-    static List <Apartment> ownerarray=new  ArrayList <Apartment> ();
+	   String bathrooms;
+	   String bedrooms;
+       //validation 	 
+       String picture;
+	   String date;
+	   
+	   
+       String residence_name;
+	   String residence_id;
+	   	  
+	   String floor; //الطابق
+	   String number_of_apartments; //رقم الشقة
+
+	
+
     
 }

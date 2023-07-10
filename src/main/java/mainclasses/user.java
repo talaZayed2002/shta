@@ -67,6 +67,18 @@ public class user {
 	       userarray.add(this); // back plz !	
 			
 		}
+//String email,String password,String name,String type,String major)
+		public user( String email, String password, String name, String type, String major, int age) {
+			super();
+	
+			this.email = email;
+			this.name = name;
+			this.password = password;
+			this.age = age;
+			this.major = major;
+			this.type = type;
+	
+		}
 		
 		
 

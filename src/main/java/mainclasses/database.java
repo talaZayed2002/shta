@@ -6,6 +6,8 @@ public class database {
 	 List <user> db_user=new ArrayList <user> ();
 	 List <admin> db_order=new ArrayList <admin> ();
 	 List <owner> db_product=new ArrayList <owner>();
+	 List <Furniture> db_Furniture=new ArrayList <Furniture>();
+
  private static final Logger logger = Logger.getLogger(database.class.getName());
 
 public  void login(String email,String password)
@@ -22,20 +24,15 @@ public  void login(String email,String password)
 			obj1.password=password;
 			
 
-		if (!db_user.contains(obj1)&&!db_user.contains(obj0)) {
+		if (!db_user.contains(obj1)) {
 			db_user.add(obj1);	
 		    logger.info("New tenant !"); 
 		for(int i=0;i<db_user.size();i++) {
-			  // logger.info(db_user.get(i).email);
-			  // logger.info(db_user.get(i).password);		
+			 // logger.info(db_user.get(i).email);
+			 // logger.info(db_user.get(i).password);		
 		}
 		}
-		if (!db_user.contains(obj0)) {
-			 logger.info("this tenant already exists!"); 
-
-		}
-		
-		
+	
 		
 		else
 			 logger.info("this tenant already exists!"); 
@@ -43,14 +40,57 @@ public  void login(String email,String password)
 			
 		}
   
-public  void AddTenantStudent(String email,String password,String name,String type,String major)
+public  void AddTenantStudent(String email,String password,String name,String type,String major,int age)
 {
+	user obj0=new user(email, password, name, type, major, age);
+	 if (!db_user.contains(obj0))
+	 {
+		    obj0.type="Student";
+			db_user.add(obj0);	
+		    logger.info("New tenant !");
+     }
+		for(int i=0;i<db_user.size();i++) {
+			 //logger.info(db_user.get(i).type+db_user.get(i).password+db_user.get(i).name+db_user.get(i).major);		
+		}
+		
+	 
+	 
 	
 	
 }
-public  void AddTenantNotStudent(String email,String password,String name,String type,String major)
+public  void AddTenantNotStudent(String email,String password,String name,String type,String major,int age)
 {
-	type="not student";
+	user obj0=new user(email, password, name, type, major, age);
+	 if (!db_user.contains(obj0))
+	 {
+		    obj0.type="Not Student";
+		    obj0.major="";
+		    obj0.age=0;
+		    obj0.name="";
+		    
+			db_user.add(obj0);	
+			
+		    logger.info("New tenant !");
+    }
+		for(int i=0;i<db_user.size();i++) {
+			 //logger.info(db_user.get(i).type+db_user.get(i).password+db_user.get(i).name+db_user.get(i).major);		
+		}
+}
+
+public void addFurniture(String furniture,int cost_furniture) {
+	Furniture obj0=new Furniture();
+			obj0.type1=furniture;
+			obj0.cost=cost_furniture;
+	 if (!db_Furniture.contains(obj0))
+		 
+	 {
+		 db_Furniture.add(obj0);
+		 
+		 for(int i=0;i<db_Furniture.size();i++) {
+			// logger.info(db_Furniture.get(i).type1+db_Furniture.get(i).cost);
+	 }
+	 }
+	 
 	
 }
 
