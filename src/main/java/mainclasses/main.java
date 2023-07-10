@@ -127,9 +127,9 @@ static void start1() {
              
              logger.info("\nphone:");
              String phone =s.nextLine();
-             valid = containsOnlyDigits(id);
+             valid = containsOnlyDigits(phone);
              while(!valid) {
-            	 id =s.nextLine();
+            	 phone =s.nextLine();
             	 valid = containsOnlyDigits(phone);
              }
              ow.phone = phone ; 
@@ -163,7 +163,7 @@ static void start1() {
              }
              ap.rent = rent ;
              
-             logger.info("services(only yes or no)");
+             logger.info("services(only yes or no)\n");
             
              logger.info("water:");             
              String water  =s.nextLine();
@@ -213,35 +213,49 @@ static void start1() {
              }
              ap.bedrooms = bedrooms ;
              
-             /*
-             logger.info("balcony: yes or no");
-             String bedrooms =s.nextLine();
-             valid = containsOnlyDigits(bedrooms);
-             while(!valid) {
-            	 bedrooms=s.nextLine();
-            	 valid = containsOnlyDigits(bedrooms);
-             }
-             ap.bedrooms = bedrooms ;
-*/
              
-          }
-          
-          
-          
-       /*   
-   	   int bathrooms;
-   	   int berdooms;
-   	   boolean balcony;
-   	   String date;
-      */
-          
-		
-	      
-	      
-	      
-	      
-	    
-	    	//tala	    
+             logger.info("balcony:yes or no");
+             String balcony =s.nextLine();
+             ynValid = yesNoValidation(balcony);
+             while(!ynValid) {
+             	   balcony  =s.nextLine();
+                  ynValid = yesNoValidation(balcony);
+             }
+             ap.balcony = balcony ;
+
+             logger.info("residence name:");
+             String residence_name =s.nextLine();
+             ap.residence_name = residence_name ; 
+             
+             logger.info("residence id:");
+             String residence_id  =s.nextLine();
+             valid = containsOnlyDigits(residence_id);
+             while(!valid) {
+            	 residence_id=s.nextLine();
+            	 valid = containsOnlyDigits(residence_id);
+             }
+             ap.residence_id= residence_id ; 
+             
+             logger.info("floor:");
+             String floor  =s.nextLine();
+             valid = containsOnlyDigits(floor);
+             while(!valid) {
+            	 floor=s.nextLine();
+            	 valid = containsOnlyDigits(floor);
+             }
+             ap.floor= floor ; 
+
+             logger.info("number of apartments in the floor:");
+             String number_of_appartments =s.nextLine();
+             valid = containsOnlyDigits( number_of_appartments);
+             while(!valid) {
+            	 number_of_appartments = s.nextLine();
+            	 valid = containsOnlyDigits( number_of_appartments);
+             }
+             ap.number_of_apartments=  number_of_appartments ; 
+                         
+          }          
+          //tala	    
 		
 	    	
 	    	
