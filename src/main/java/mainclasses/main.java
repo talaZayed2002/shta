@@ -18,6 +18,27 @@ static admin admin1;
 static user user1;
 static owner owner1;
 static database db;
+static boolean valid ;
+static boolean ynValid ; 
+
+public static boolean yesNoValidation(String s){
+	if( s.equals("yes") || s.equals("no")) {
+		return true ;
+	}
+	else 
+		return false ;
+}
+
+
+public static boolean containsOnlyDigits(String str) { 
+    for (int i = 0; i < str.length(); i++) {
+      if (!Character.isDigit(str.charAt(i))) { // in case that a char is NOT a digit, enter to the if code block
+        return false;
+      }
+    }
+	return true ; 
+}
+
 
 static void start1() {
 	  logger.info(" \n"+"                                    HELLO\n"+
@@ -83,7 +104,146 @@ static void start1() {
 			}		
 	      logger.info("\nPlease enter your password:"); 
 	      	password=s.nextLine();	
-	    	owner1.checkowner(email, password);
+	    	int res= owner1.checkowner(email, password);	    	
+	      //tala	    	
+	      if (res !=1) {//new user 
+	         owner ow = new owner ();             
+             ow.email = email ; 
+             ow.password= password ; 
+	    
+	    	 logger.info("Please enter your information:\n");		    
+        	 logger.info("\nid:");
+             String id =s.nextLine();
+             valid = containsOnlyDigits(id);
+             while(!valid) {
+            	 id =s.nextLine();
+            	 valid = containsOnlyDigits(id);
+             }
+             ow.id = id ; 
+            
+             logger.info("\nname:");
+             String name =s.nextLine();
+             ow.name = name ; 
+             
+             logger.info("\nphone:");
+             String phone =s.nextLine();
+             valid = containsOnlyDigits(id);
+             while(!valid) {
+            	 id =s.nextLine();
+            	 valid = containsOnlyDigits(phone);
+             }
+             ow.phone = phone ; 
+             
+             logger.info("\naddress:");
+             String address  =s.nextLine();
+             ow.id = address ;                         
+          }
+	      
+	      logger.info("1.Add new appratment:\n2.Dashboard:");
+	      num = s.nextInt() ; 	      
+          if(num == 1){
+        	 Apartment ap = new Apartment(); 
+        	 
+        	 logger.info("photo link:");
+             String p =s.nextLine();
+             ap.picture = p ; 
+             //validation
+             
+             
+             logger.info("location:");
+             String location =s.nextLine();
+             ap.location = location ; 
+             
+             logger.info("rent:");
+             String rent =s.nextLine();
+             valid = containsOnlyDigits(rent);
+             while(!valid) {
+            	 rent=s.nextLine();
+            	 valid = containsOnlyDigits(rent);
+             }
+             ap.rent = rent ;
+             
+             logger.info("services(only yes or no)");
+            
+             logger.info("water:");             
+             String water  =s.nextLine();
+             ynValid = yesNoValidation(water);
+             while(!ynValid) {
+                  water  =s.nextLine();
+                 ynValid = yesNoValidation(water);
+
+             }
+             ap.water = water;
+
+             
+             logger.info("internet");     
+             String internet  =s.nextLine();
+             ynValid = yesNoValidation(internet);
+             while(!ynValid) {
+                  internet  =s.nextLine();
+                  ynValid = yesNoValidation(internet);
+             }
+             ap.internet = internet;
+             
+           
+             logger.info("electricety:");    
+             String electricety  =s.nextLine();
+             ynValid = yesNoValidation(electricety);
+             while(!ynValid) {
+             	  electricety  =s.nextLine();
+                  ynValid = yesNoValidation(electricety);
+             }
+             ap.electric = electricety;
+             
+             logger.info("#bathrooms:");
+             String bathrooms =s.nextLine();
+             valid = containsOnlyDigits(bathrooms);
+             while(!valid) {
+            	 bathrooms=s.nextLine();
+            	 valid = containsOnlyDigits(bathrooms);
+             }
+             ap.bathrooms = bathrooms ;
+             
+             logger.info("#bedrooms:");
+             String bedrooms =s.nextLine();
+             valid = containsOnlyDigits(bedrooms);
+             while(!valid) {
+            	 bedrooms=s.nextLine();
+            	 valid = containsOnlyDigits(bedrooms);
+             }
+             ap.bedrooms = bedrooms ;
+             
+             /*
+             logger.info("balcony: yes or no");
+             String bedrooms =s.nextLine();
+             valid = containsOnlyDigits(bedrooms);
+             while(!valid) {
+            	 bedrooms=s.nextLine();
+            	 valid = containsOnlyDigits(bedrooms);
+             }
+             ap.bedrooms = bedrooms ;
+*/
+             
+          }
+          
+          
+          
+       /*   
+   	   int bathrooms;
+   	   int berdooms;
+   	   boolean balcony;
+   	   String date;
+      */
+          
+		
+	      
+	      
+	      
+	      
+	    
+	    	//tala	    
+		
+	    	
 	    	
 	    	
 			break;

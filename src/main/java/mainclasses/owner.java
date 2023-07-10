@@ -36,8 +36,4 @@ public class owner {
 		
 		return 0;
 	}
-	
-
-
-
 }
