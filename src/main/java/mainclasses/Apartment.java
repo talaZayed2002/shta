@@ -3,7 +3,7 @@ package mainclasses;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Apartment {	
+public class Apartment {	//عمارة 
 	   String id;
 	   String rent;	  
        String location; 	   
@@ -13,9 +13,10 @@ public class Apartment {
 	   String internet;
 	   String bathrooms;
 	   String bedrooms;
-	 
+       //validation 	 
        String picture;
 	   String date;
+	   
 	   
        String residence_name;
 	   String residence_id;

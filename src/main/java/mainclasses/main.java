@@ -256,10 +256,7 @@ static void start1() {
                          
           }          
           //tala	    
-		
-	    	
-	    	
-	    	
+			    	
 			break;
 		} // end of case 3 for owner 
 	
