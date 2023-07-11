@@ -4,6 +4,12 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
+
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
+ 
+
 public class main {
 private static final Logger logger = Logger.getLogger(main.class.getName());
 static Scanner s=new Scanner(System.in);
@@ -21,7 +27,33 @@ static database db;
 static boolean valid ;
 static boolean ynValid ; 
 
-public static boolean yesNoValidation(String s){
+
+public static boolean idAndPhoneValidator(String id_phone)
+{
+	if(!digitsValidator(id_phone)) {
+		return false ;
+	}
+	if(id_phone.length() !=10) {
+		return false ;
+	}  
+	return true ;
+}
+
+public static boolean urlValidator(String url)
+{
+    try {
+        new URL(url).toURI();
+        return true;
+    }
+    catch (URISyntaxException exception) {
+        return false;
+    }
+    catch (MalformedURLException exception) {
+        return false;
+    }
+}
+
+public static boolean yesNoValidator(String str){
 	if( s.equals("yes") || s.equals("no")) {
 		return true ;
 	}
@@ -29,14 +61,14 @@ public static boolean yesNoValidation(String s){
 		return false ;
 }
 
-
-public static boolean containsOnlyDigits(String str) { 
+public static boolean digitsValidator(String str) { 
     for (int i = 0; i < str.length(); i++) {
       if (!Character.isDigit(str.charAt(i))) { // in case that a char is NOT a digit, enter to the if code block
         return false;
       }
-    }
-	return true ; 
+    }    
+    	return true ; 
+
 }
 
 
@@ -114,10 +146,11 @@ static void start1() {
 	    	 logger.info("Please enter your information:\n");		    
         	 logger.info("\nid:");
              String id =s.nextLine();
-             valid = containsOnlyDigits(id);
-             while(!valid) {
+             valid = idAndPhoneValidator(id);
+             while( !valid ) {
+            	 logger.info("invalid phone number !");
             	 id =s.nextLine();
-            	 valid = containsOnlyDigits(id);
+            	 valid = idAndPhoneValidator(id);
              }
              ow.id = id ; 
             
@@ -125,12 +158,13 @@ static void start1() {
              String name =s.nextLine();
              ow.name = name ; 
              
-             logger.info("\nphone:");
+             logger.info("\nphone number:");
              String phone =s.nextLine();
-             valid = containsOnlyDigits(phone);
-             while(!valid) {
+             valid = idAndPhoneValidator(phone);
+             while( !valid ) {
+            	 logger.info("invalid phone number !");
             	 phone =s.nextLine();
-            	 valid = containsOnlyDigits(phone);
+            	 valid = idAndPhoneValidator(phone);
              }
              ow.phone = phone ; 
              
@@ -146,9 +180,14 @@ static void start1() {
         	 
         	 logger.info("photo link:");
              String p =s.nextLine();
+             valid = urlValidator(p);     
+             while(!valid) {
+            	 logger.info("invalid link !");
+            	 p =s.nextLine();
+            	 valid = urlValidator(p);     
+             }
              ap.picture = p ; 
-             //validation
-             
+
              
              logger.info("location:");
              String location =s.nextLine();
@@ -156,10 +195,11 @@ static void start1() {
              
              logger.info("rent:");
              String rent =s.nextLine();
-             valid = containsOnlyDigits(rent);
+             valid = digitsValidator(rent);
              while(!valid) {
+            	 logger.info("invalid rent !");
             	 rent=s.nextLine();
-            	 valid = containsOnlyDigits(rent);
+            	 valid = digitsValidator(rent);
              }
              ap.rent = rent ;
              
@@ -167,10 +207,11 @@ static void start1() {
             
              logger.info("water:");             
              String water  =s.nextLine();
-             ynValid = yesNoValidation(water);
+             ynValid = yesNoValidator(water);
              while(!ynValid) {
+            	 logger.info("invalid !");
                   water  =s.nextLine();
-                 ynValid = yesNoValidation(water);
+                 ynValid = yesNoValidator(water);
 
              }
              ap.water = water;
@@ -178,48 +219,52 @@ static void start1() {
              
              logger.info("internet");     
              String internet  =s.nextLine();
-             ynValid = yesNoValidation(internet);
+             ynValid = yesNoValidator(internet);
              while(!ynValid) {
+            	 logger.info("invalid !");
                   internet  =s.nextLine();
-                  ynValid = yesNoValidation(internet);
+                  ynValid = yesNoValidator(internet);
              }
              ap.internet = internet;
              
            
              logger.info("electricety:");    
              String electricety  =s.nextLine();
-             ynValid = yesNoValidation(electricety);
+             ynValid = yesNoValidator(electricety);
              while(!ynValid) {
+            	 logger.info("invalid !");
              	  electricety  =s.nextLine();
-                  ynValid = yesNoValidation(electricety);
+                  ynValid = yesNoValidator(electricety);
              }
              ap.electric = electricety;
              
              logger.info("#bathrooms:");
              String bathrooms =s.nextLine();
-             valid = containsOnlyDigits(bathrooms);
+             valid = digitsValidator(bathrooms);
              while(!valid) {
+            	 logger.info("invalid !");
             	 bathrooms=s.nextLine();
-            	 valid = containsOnlyDigits(bathrooms);
+            	 valid = digitsValidator(bathrooms);
              }
              ap.bathrooms = bathrooms ;
              
              logger.info("#bedrooms:");
              String bedrooms =s.nextLine();
-             valid = containsOnlyDigits(bedrooms);
+             valid = digitsValidator(bedrooms);
              while(!valid) {
+            	 logger.info("invalid !");
             	 bedrooms=s.nextLine();
-            	 valid = containsOnlyDigits(bedrooms);
+            	 valid = digitsValidator(bedrooms);
              }
              ap.bedrooms = bedrooms ;
-             
-             
+                          
              logger.info("balcony:yes or no");
              String balcony =s.nextLine();
-             ynValid = yesNoValidation(balcony);
+             ynValid = yesNoValidator(balcony);
              while(!ynValid) {
-             	   balcony  =s.nextLine();
-                  ynValid = yesNoValidation(balcony);
+            	 logger.info("invalid !");
+             	 balcony  =s.nextLine();
+                 ynValid = yesNoValidator(balcony);
              }
              ap.balcony = balcony ;
 
@@ -227,36 +272,37 @@ static void start1() {
              String residence_name =s.nextLine();
              ap.residence_name = residence_name ; 
              
-             logger.info("residence id:");
-             String residence_id  =s.nextLine();
-             valid = containsOnlyDigits(residence_id);
-             while(!valid) {
-            	 residence_id=s.nextLine();
-            	 valid = containsOnlyDigits(residence_id);
-             }
-             ap.residence_id= residence_id ; 
-             
              logger.info("floor:");
              String floor  =s.nextLine();
-             valid = containsOnlyDigits(floor);
+             valid = digitsValidator(floor);
              while(!valid) {
+                logger.info("invalid !");
             	 floor=s.nextLine();
-            	 valid = containsOnlyDigits(floor);
+            	 valid = digitsValidator(floor);
              }
              ap.floor= floor ; 
 
              logger.info("number of apartments in the floor:");
              String number_of_appartments =s.nextLine();
-             valid = containsOnlyDigits( number_of_appartments);
+             valid = digitsValidator( number_of_appartments);
              while(!valid) {
+            	 logger.info("invalid !");
             	 number_of_appartments = s.nextLine();
-            	 valid = containsOnlyDigits( number_of_appartments);
+            	 valid = digitsValidator( number_of_appartments);
              }
-             ap.number_of_apartments=  number_of_appartments ;                          
+             ap.number_of_apartments=  number_of_appartments ;                     
+             
+             
+             //date
+             logger.info("date of pay :");
+             String date = s.nextLine();
+             //datevalidator
+             ap.date =date ;
+
+             
           }          
-          //tala	    
-			    	
-			break;
+          //tala				    	
+		    break;
 		} // end of case 3 for owner 
 	
 		default :

@@ -17,13 +17,18 @@
 ## (Comments)
 #Sample Feature Definition Template
 Feature: User Sign Up
-
 Scenario: User successfully signs up
-
-Given the user is on the sign-up page
+Given the user is on the login page and his email not found in owners list
 When the user enters valid registration details 
 And submits the form
 Then the user sign up successfully 
+
+Scenario: user sign up with invalid email
+Given the user is not logged in to the system
+When the user enter invalid email to sign up
+Then the system should display an error message 
+And the system should read a new email 
+
 
 #Scenario: User enters invalid email address
 
