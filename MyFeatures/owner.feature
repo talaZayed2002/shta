@@ -33,7 +33,7 @@ Scenario: Owner adds invalid photo format
     Then the system should display an error message
     And the owner will not be able to add the photo link
 
-Feature: owner adds location 
+ 
 Scenario: Owner adds residence location details
     Given the owner is logged in to the system
     And the owner has a choice list
@@ -50,7 +50,7 @@ Scenario: Owner adds invalid location details
     Then the system should display an error message
     And the owner will not be able to add location details
 
-Feature: owner adds sevices 
+ 
 Scenario: Owner adds sevices
     Given the owner is logged in to the system
     And the owner has a choice list
@@ -67,7 +67,7 @@ Scenario: Owner adds invalid srevices
     Then the system should display an error message
     And the owner will not be able to store the services
 	
-Feature: add rent
+
 Scenario: Owner adds rent
     Given the owner is logged in to the system
     And the owner has a choice list
@@ -84,7 +84,6 @@ Scenario: Owner adds invalid srevices
     Then the system should display an error message
     And the owner will not be able to store the rent
 
-Feature: add rent with water and electricity
 Scenario: Owner adds rent with water and electricity
     Given the owner is logged in to the system
     And the owner has a choice list
@@ -101,7 +100,6 @@ Scenario: Owner adds invalid srevices
     Then the system should display an error message
     And the owner will not be able to store the rent with water and electricity
  
-Feature: add address of owner 
 Scenario: Owner enter the address 
     Given the owner is logged in to the system
     And the owner has a choice list
@@ -118,8 +116,6 @@ Scenario: Owner adds invalid address
     Then the system should display an error message
     And the owner will not be able to the address
 		
-Feature: add id of owner 	
-Scenario: Owner enter the id
 Scenario: Owner enter the id
     Given the owner is logged in to the system
     And the owner has a choice list
@@ -136,7 +132,6 @@ Scenario: Owner adds invalid id
     Then the system should display an error message
     And the owner will not be able to the id
 
-Feature: add phone number  of owner 	
 Scenario: Owner enter the phone number
     Given the owner is logged in to the system
     And the owner has a choice list
@@ -152,7 +147,6 @@ Scenario: Owner adds invalid phone number
     And add invalid phone number
     Then the system should display an error message
     And the owner will not be able to the phone number
-Feature: dashboard
 Scenario: Viewing Housing Details
     Given the owner is logged in to the system
 	And the owner has a choice list

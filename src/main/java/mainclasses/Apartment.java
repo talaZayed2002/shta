@@ -24,6 +24,5 @@ public class Apartment {	//عمارة
 	   String number_of_apartments; //رقم الشقة
 
 	
-
     
 }

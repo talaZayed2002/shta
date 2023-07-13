@@ -383,21 +383,21 @@ static void ViewTenantMenuStudent(){
      }//end case 2
      case 3:
      {
-    	 logger.info("Please write what type of furniture u wnat to adertise \n");
-    	 furniture=s.nextLine();
-    	 furniture=s.nextLine();
-    	 furniture1.type1=furniture;
-    	 logger.info("Please write the cost \n");
-         cost_furniture=s.nextInt();
-         furniture1.cost=cost_furniture;
-         db.addFurniture(furniture,cost_furniture);
+    	 
 
   	 
     	 break;
      }//end case 3
       case 4:
       {
-    	 
+    	  logger.info("Please write what type of furniture u wnat to adertise \n");
+     	 furniture=s.nextLine();
+     	 furniture=s.nextLine();
+     	 furniture1.type1=furniture;
+     	 logger.info("Please write the cost \n");
+          cost_furniture=s.nextInt();
+          furniture1.cost=cost_furniture;
+          db.addFurniture(furniture,cost_furniture);
     	 break;
      }//end case 4
      case 5:{
@@ -411,7 +411,7 @@ static void ViewTenantMenuStudent(){
      }
      }
 	
-	
+     TenantDashboard();
 	
 
 }
@@ -450,13 +450,30 @@ static void ViewTenantMenuNotStudent(){
     {
    	 logger.info("The enteryis not correct!.");
     }
+   
     }
+    TenantDashboard();
 }
 
+static void TenantDashboard() {
+	
 
+	 logger.info("\nThis is is for "+	user1.name+" Only :D \n"+
+	  		   	" |  Name:"+ user1.name +"    | "+" Age:" +user1.age+"     |  "+"Major:"+user1.major +" |\n "+
+	  			"|                    "+"  |  "+"        "+"  |  "+"                   "+"        |\n "+
+	  		   	"|-----------------------------------------------------------------|\n "+
+	  			"|                    "+"  |  "+"        "+"  |  "+"                   "+"        |\n "+
+	  			"|                    "+"  |  "+"        "+"  |  "+"                   "+"        |\n "	 
+	  			 );
+  	 
+  	 
+}
 
 public static void main(String[] args) 
-{	
+
+
+{
+
 	start1();
 
 		

@@ -7,7 +7,7 @@ public class database {
 	 List <admin> db_order=new ArrayList <admin> ();
 	 List <owner> db_product=new ArrayList <owner>();
 	 List <Furniture> db_Furniture=new ArrayList <Furniture>();
-
+	 List <Apartment> db_Apartment=new ArrayList <Apartment>();
  private static final Logger logger = Logger.getLogger(database.class.getName());
 
 public  void login(String email,String password)
@@ -93,5 +93,14 @@ public void addFurniture(String furniture,int cost_furniture) {
 	 
 	
 }
+
+public void ViewHousing() {
+	 for(int i=0;i<db_Apartment.size();i++) {
+		 Apartment obj0=new Apartment();
+		 
+		 
+	 }
+	 
+	 }
 
 }
