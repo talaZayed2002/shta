@@ -1,9 +1,9 @@
 package mainclasses;
-
 import java.util.ArrayList;
 import java.util.List;
-public class Apartment {	//عمارة 
+public class Apartment {	
 	   String id;
+	   String picture;
 	   String rent;	  
        String location; 	   
 	   String water;
@@ -12,18 +12,15 @@ public class Apartment {	//عمارة
 	   String internet;
 	   String bathrooms;
 	   String bedrooms;
-       //validation 	 
-       String picture;
-	   String date;
-	   
-	   
-       String residence_name;
-	   String residence_id;
-	   	  
-	   String floor; //الطابق
-	   String number_of_apartments; //رقم الشقة
-
-	
-
+       String floor; 
+       String numberOfApartmentsInFloor;       
+       
+       String buildingiId;	
     
+
+	   String date;
+     
+
+	   	  
+   
 }

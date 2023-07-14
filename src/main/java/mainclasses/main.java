@@ -1,5 +1,7 @@
 package mainclasses;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Logger;
 //import org.slf4j.Logger;
@@ -25,15 +27,22 @@ static user user1;
 static owner owner1;
 static database db;
 static boolean valid ;
-static boolean ynValid ; 
+static boolean ynValid ;
+static boolean buildingExists ;
+static List <Apartment> apartmentList = new ArrayList <Apartment> ();
+static List <Building> buildingList   = new ArrayList <Building> ();
+static List <owner> ownerList   = new ArrayList <owner> ();
 
 
-public static boolean idAndPhoneValidator(String id_phone)
+
+
+
+public static boolean idAndPhoneValidator(String idAndPhone)
 {
-	if(!digitsValidator(id_phone)) {
+	if(!digitsValidator(idAndPhone)) {
 		return false ;
 	}
-	if(id_phone.length() !=10) {
+	if(idAndPhone.length() !=10) {
 		return false ;
 	}  
 	return true ;
@@ -137,7 +146,8 @@ static void start1() {
 	      logger.info("\nPlease enter your password:"); 
 	      	password=s.nextLine();	
 	    	int res= owner1.checkowner(email, password);	    	
-	      //tala	    	
+	      //tala	 
+	    	
 	      if (res !=1) {//new user 
 	         owner ow = new owner ();             
              ow.email = email ; 
@@ -178,15 +188,26 @@ static void start1() {
           if(num == 1){
         	 Apartment ap = new Apartment(); 
         	 
+             logger.info("Appartment id:");
+             String apartmentId =s.nextLine();
+             valid = digitsValidator(apartmentId);
+             while(!valid) {
+            	 logger.info("invalid rent !");
+            	 apartmentId=s.nextLine();
+            	 valid = digitsValidator(apartmentId);
+             }
+             ap.id = apartmentId ;
+         	 
+        	 
         	 logger.info("photo link:");
-             String p =s.nextLine();
-             valid = urlValidator(p);     
+             String picture =s.nextLine();
+             valid = urlValidator(picture);     
              while(!valid) {
             	 logger.info("invalid link !");
-            	 p =s.nextLine();
-            	 valid = urlValidator(p);     
+            	 picture =s.nextLine();
+            	 valid = urlValidator(picture);     
              }
-             ap.picture = p ; 
+             ap.picture = picture ; 
 
              
              logger.info("location:");
@@ -267,10 +288,6 @@ static void start1() {
                  ynValid = yesNoValidator(balcony);
              }
              ap.balcony = balcony ;
-
-             logger.info("residence name:");
-             String residence_name =s.nextLine();
-             ap.residence_name = residence_name ; 
              
              logger.info("floor:");
              String floor  =s.nextLine();
@@ -283,22 +300,61 @@ static void start1() {
              ap.floor= floor ; 
 
              logger.info("number of apartments in the floor:");
-             String number_of_appartments =s.nextLine();
-             valid = digitsValidator( number_of_appartments);
+             String numberOfAppartments =s.nextLine();
+             valid = digitsValidator( numberOfAppartments);
              while(!valid) {
             	 logger.info("invalid !");
-            	 number_of_appartments = s.nextLine();
-            	 valid = digitsValidator( number_of_appartments);
+            	 numberOfAppartments = s.nextLine();
+            	 valid = digitsValidator( numberOfAppartments);
              }
-             ap.number_of_apartments=  number_of_appartments ;                     
+             ap.numberOfApartmentsInFloor=  numberOfAppartments ;
              
-             
-             //date
-             logger.info("date of pay :");
-             String date = s.nextLine();
-             //datevalidator
-             ap.date =date ;
+             apartmentList.add(ap);
 
+             //inforamation for building
+             logger.info("building id:");
+             String buildingId =s.nextLine();
+             valid = digitsValidator(buildingId);
+             while(!valid) {
+            	 logger.info("invalid !");
+            	 buildingId=s.nextLine();
+            	 valid = digitsValidator(buildingId);
+             }            
+             ap.buildingId = buildingId ; 
+ 
+             logger.info("building name:");
+             String buildingName =s.nextLine();
+
+             logger.info("building floors:");
+             String buildingFloors =s.nextLine();
+             valid = digitsValidator(buildingFloors);
+             while(!valid) {
+            	 logger.info("invalid !");
+            	 buildingFloors=s.nextLine();
+            	 valid = digitsValidator(buildingFloors);
+             }            
+    
+            // check if the building in the array list
+             buildingExists = false;
+             for (Apartment a :  apartmentList  ) {
+                 if (a.buildingId.equals(buildingId)) {
+                	 buildingExists = true;
+                     break;
+                 }
+             }
+            if(!buildingExists) {
+             Building bu = new Building();
+
+             bu.buildingId =buildingId ; 
+
+             bu.buildingName = buildingName ; 
+             
+             bu.buildingFloors = buildingFloors ;    
+             
+             buildingList.add(bu);
+            }
+        
+          
              
           }          
           //tala				    	
