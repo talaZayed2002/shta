@@ -39,10 +39,22 @@ public  void login(String email,String password)
 
 			
 		}
+public void ShowWhichTenant(String id,String name) {
+	user use=new user();
+	owner own=new owner();
+	Apartment apart =new Apartment();
+	for(int i=0;i<db_user.size();i++) {
+		if(db_user.get(i).id.equals(id)) {
+		
+			 logger.info("|"+  own.id                + "|"  + "|" + own.name             +"\n ");
+			
+		}
+	}
+}
   
-public  void AddTenantStudent(String email,String password,String name,String type,String major,int age)
+public  void AddTenantStudent(String email,String password,String name,String type,String major,int age,String id)
 {
-	user obj0=new user(email, password, name, type, major, age);
+	user obj0=new user(email, password, name, type, major, age,id);
 	 if (!db_user.contains(obj0))
 	 {
 		    obj0.type="Student";
@@ -58,9 +70,9 @@ public  void AddTenantStudent(String email,String password,String name,String ty
 	
 	
 }
-public  void AddTenantNotStudent(String email,String password,String name,String type,String major,int age)
+public  void AddTenantNotStudent(String email,String password,String name,String type,String major,int age,String id)
 {
-	user obj0=new user(email, password, name, type, major, age);
+	user obj0=new user(email, password, name, type, major, age,id);
 	 if (!db_user.contains(obj0))
 	 {
 		    obj0.type="Not Student";
@@ -94,6 +106,16 @@ public void addFurniture(String furniture,int cost_furniture) {
 	
 }
 
+
+
+public void addBuilding(Apartment obj) {
+ 
+	 for(int i=0;i<db_Apartment.size();i++) {
+		 db_Apartment.add(obj);
+		 logger.info("\n" +db_Apartment.get(i).floor);
+	 }
+}
+
 public void ViewHousing() {
 	 for(int i=0;i<db_Apartment.size();i++) {
 		 Apartment obj0=new Apartment();
@@ -101,6 +123,6 @@ public void ViewHousing() {
 		 
 	 }
 	 
-	 }
+}
 
 }

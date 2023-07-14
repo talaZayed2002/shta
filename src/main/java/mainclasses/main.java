@@ -1,9 +1,17 @@
 package mainclasses;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Logger;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
+
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
+ 
+
 public class main {
 private static final Logger logger = Logger.getLogger(main.class.getName());
 static Scanner s=new Scanner(System.in);
@@ -14,15 +22,17 @@ static String name="0";
 static String major="0";
 static String type="0";
 static int age=0;
+static String id="0";
 static admin admin1;
 static user user1=new user();
 static owner owner1;
 static database db=new database();
-static boolean valid ;
-static boolean ynValid ; 
+static Apartment ap = new Apartment();
 static String furniture;
 static Furniture furniture1=new Furniture();
 static int cost_furniture;
+static List <Apartment> db_Apartment=new ArrayList <Apartment>(); //new !
+
 public static boolean yesNoValidation(String s){
 	if( s.equals("yes") || s.equals("no")) {
 		return true ;
@@ -39,6 +49,60 @@ public static boolean containsOnlyDigits(String str) {
       }
     }
 	return true ; 
+}
+
+static boolean valid ;
+static boolean ynValid ;
+static boolean buildingExists ;
+static List <Apartment> apartmentList = new ArrayList <Apartment> ();
+static List <Building> buildingList   = new ArrayList <Building> ();
+static List <owner> ownerList   = new ArrayList <owner> ();
+
+
+
+
+
+public static boolean idAndPhoneValidator(String idAndPhone)
+{
+	if(!digitsValidator(idAndPhone)) {
+		return false ;
+	}
+	if(idAndPhone.length() !=10) {
+		return false ;
+	}  
+	return true ;
+}
+
+public static boolean urlValidator(String url)
+{
+    try {
+        new URL(url).toURI();
+        return true;
+    }
+    catch (URISyntaxException exception) {
+        return false;
+    }
+    catch (MalformedURLException exception) {
+        return false;
+    }
+}
+
+public static boolean yesNoValidator(String str){
+	if( s.equals("yes") || s.equals("no")) {
+		return true ;
+	}
+	else 
+		return false ;
+}
+
+public static boolean digitsValidator(String str) { 
+    for (int i = 0; i < str.length(); i++) {
+      if (!Character.isDigit(str.charAt(i))) { // in case that a char is NOT a digit, enter to the if code block
+        return false;
+      }
+    }    
+    	return true ; 
+
 }
 
 
@@ -73,23 +137,8 @@ static void start1() {
 		
 		case 2:
 		{ 
-			logger.info("Please enter your email as tenant:"); 
-		email=s.nextLine();
-		email=s.nextLine();
-		while(!(email.contains("@"))) {
-			logger.info("Please this is not an invalid email\n reenter ur email"); 
-			email=s.nextLine();
-			user1.email=email;
-			
-		}		
-      logger.info("\nPlease enter your password:"); 
-      	password=s.nextLine();	
-    	user1.checkuser(email, password);
-      
-       
 
-    	ViewForTenant();
-    	
+			TenantStart();
     	
 			break;
 			
@@ -144,10 +193,11 @@ static void start1() {
 	      logger.info("1.Add new appratment:\n2.Dashboard:");
 	      num = s.nextInt() ; 	      
           if(num == 1){
-        	 Apartment ap = new Apartment(); 
+        	 
         	 
         	 logger.info("photo link:");
              String p =s.nextLine();
+               p =s.nextLine();
              ap.picture = p ; 
              //validation
              
@@ -156,6 +206,8 @@ static void start1() {
              String location =s.nextLine();
              ap.location = location ; 
              
+          
+              
              logger.info("rent:");
              String rent =s.nextLine();
              valid = containsOnlyDigits(rent);
@@ -164,6 +216,7 @@ static void start1() {
             	 valid = containsOnlyDigits(rent);
              }
              ap.rent = rent ;
+        
              
              logger.info("services(only yes or no)\n");
             
@@ -254,7 +307,15 @@ static void start1() {
             	 number_of_appartments = s.nextLine();
             	 valid = containsOnlyDigits( number_of_appartments);
              }
-             ap.number_of_apartments=  number_of_appartments ;                          
+             ap.number_of_apartments=  number_of_appartments ;  
+             
+             
+             db_Apartment.add(ap); // add all these fields to the array list 
+            /* for(int i=0;i<db_Apartment.size();i++){
+    		// logger.info(db_Apartment.get(i).picture+db_Apartment.get(i).rent+db_Apartment.get(i).floor);
+            }*/
+             logger.info("\n \n Now please log in as tenant to book an apartment ! \n");
+              TenantStart(); //contionue as tenant
           }          
           //tala	    
 			    	
@@ -283,6 +344,11 @@ static void ViewForTenant() {
     	 	name=s.nextLine();
     	 	name=s.nextLine();
     	 	user1.name=name;
+    	 	
+    		logger.info("Please enter your id\n"); 
+    	 	id=s.nextLine();
+    	
+    	 	user1.id=id;
     	
     	 	logger.info("Please enter your age\n"); 
     		age=s.nextInt();
@@ -296,7 +362,7 @@ static void ViewForTenant() {
     	
     	
     	
-    		db.AddTenantStudent(email,password,name,type,major,age);
+    		db.AddTenantStudent(email,password,name,type,major,age,id);
     		
     		
            ViewTenantMenuStudent();
@@ -314,7 +380,7 @@ static void ViewForTenant() {
  	 	name=s.nextLine();
  	 	user1.name=name;
  	
- 		db.AddTenantNotStudent(email,password,name,type,major,age);
+ 		db.AddTenantNotStudent(email,password,name,type,major,age,id);
     	 
     	 ViewTenantMenuNotStudent();
     	 break;
@@ -415,6 +481,28 @@ static void ViewTenantMenuStudent(){
 	
 
 }
+
+
+
+
+static void TenantStart() {
+logger.info("Please enter your email as tenant:"); 
+email=s.nextLine();
+email=s.nextLine();
+while(!(email.contains("@"))) {
+logger.info("Please this is not an invalid email\n reenter ur email"); 
+email=s.nextLine();
+user1.email=email;
+
+}		
+logger.info("\nPlease enter your password:"); 
+password=s.nextLine();	
+user1.checkuser(email, password);
+
+
+
+ViewForTenant();
+}
 static void ViewTenantMenuNotStudent(){
 	logger.info(" \n                               Tenant Menue - Not Student \n"+ 
 	"1-View the available housing contains Picture,Price,location, and services available in them\n"+
@@ -461,11 +549,17 @@ static void TenantDashboard() {
 	 logger.info("\nThis is is for "+	user1.name+" Only :D \n"+
 	  		   	" |  Name:"+ user1.name +"    | "+" Age:" +user1.age+"     |  "+"Major:"+user1.major +" |\n "+
 	  			"|                    "+"  |  "+"        "+"  |  "+"                   "+"        |\n "+
-	  		   	"|-----------------------------------------------------------------|\n "+
-	  			"|                    "+"  |  "+"        "+"  |  "+"                   "+"        |\n "+
-	  			"|                    "+"  |  "+"        "+"  |  "+"                   "+"        |\n "	 
-	  			 );
-  	 
+	  		   	"|-----------------------------------------------------------------|\n ");
+	             
+	      db.ShowWhichTenant(user1.id,user1.name);
+	  			//"|  Owner name:" +ap.rent     +"|"        + "\n "+
+	  			//"|                    "+"  |  "+"        "+"  |  "+"                   "+"        |\n "	 
+	  			 
+	            
+	 
+
+// tenant book after owner show his apartments(book comes from the owner)
+	
   	 
 }
 
