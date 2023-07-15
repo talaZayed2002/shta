@@ -7,6 +7,8 @@ import java.util.logging.Logger;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
 
+import test.resources.java.najah.edu.acceptance.AppartmentSteps;
+import test.resources.java.najah.edu.acceptance.OwnerSteps;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -26,59 +28,12 @@ static admin admin1;
 static user user1;
 static owner owner1;
 static database db;
-static boolean valid ;
-static boolean ynValid ;
-static boolean buildingExists ;
-static List <Apartment> apartmentList = new ArrayList <Apartment> ();
-static List <Building> buildingList   = new ArrayList <Building> ();
-static List <owner> ownerList   = new ArrayList <owner> ();
 
+public static boolean ownerLoggedIn;
 
-
-
-
-public static boolean idAndPhoneValidator(String idAndPhone)
-{
-	if(!digitsValidator(idAndPhone)) {
-		return false ;
-	}
-	if(idAndPhone.length() !=10) {
-		return false ;
-	}  
-	return true ;
-}
-
-public static boolean urlValidator(String url)
-{
-    try {
-        new URL(url).toURI();
-        return true;
-    }
-    catch (URISyntaxException exception) {
-        return false;
-    }
-    catch (MalformedURLException exception) {
-        return false;
-    }
-}
-
-public static boolean yesNoValidator(String str){
-	if( s.equals("yes") || s.equals("no")) {
-		return true ;
-	}
-	else 
-		return false ;
-}
-
-public static boolean digitsValidator(String str) { 
-    for (int i = 0; i < str.length(); i++) {
-      if (!Character.isDigit(str.charAt(i))) { // in case that a char is NOT a digit, enter to the if code block
-        return false;
-      }
-    }    
-    	return true ; 
-
-}
+public static List <Apartment> apartmentList = new ArrayList <Apartment> ();
+public static List <Building> buildingList   = new ArrayList <Building> ();
+public static List <owner> ownerList   = new ArrayList <owner> ();
 
 
 static void start1() {
@@ -136,228 +91,39 @@ static void start1() {
 		
 		case 3:
 		{
-		logger.info("Please enter your email as tenant:"); 
+		    logger.info("Please enter your email as owner:"); 
 			email=s.nextLine();
 			email=s.nextLine();
 			while(!(email.contains("@"))) {
 				logger.info("Please this is not an invalid email\n reenter ur email"); 
 				email=s.nextLine();
-			}		
-	      logger.info("\nPlease enter your password:"); 
+	 		}		
+	        logger.info("\nPlease enter your password:"); 
 	      	password=s.nextLine();	
 	    	int res= owner1.checkowner(email, password);	    	
-	      //tala	 
+	        //tala	
 	    	
-	      if (res !=1) {//new user 
-	         owner ow = new owner ();             
-             ow.email = email ; 
-             ow.password= password ; 
-	    
-	    	 logger.info("Please enter your information:\n");		    
-        	 logger.info("\nid:");
-             String id =s.nextLine();
-             valid = idAndPhoneValidator(id);
-             while( !valid ) {
-            	 logger.info("invalid phone number !");
-            	 id =s.nextLine();
-            	 valid = idAndPhoneValidator(id);
-             }
-             ow.id = id ; 
-            
-             logger.info("\nname:");
-             String name =s.nextLine();
-             ow.name = name ; 
-             
-             logger.info("\nphone number:");
-             String phone =s.nextLine();
-             valid = idAndPhoneValidator(phone);
-             while( !valid ) {
-            	 logger.info("invalid phone number !");
-            	 phone =s.nextLine();
-            	 valid = idAndPhoneValidator(phone);
-             }
-             ow.phone = phone ; 
-             
-             logger.info("\naddress:");
-             String address  =s.nextLine();
-             ow.id = address ;                         
-          }
+	    	
+	        //if new owner
+	        if (res !=1) {	    	 
+	    	  logger.info("Please enter your information:\n");		  	    	 
+	    	  OwnerSteps.theOwnerSignedUp(email,password);	   	      
+	        }
+	        //if existing owner 
+	        else {	    	   
+	    	   AppartmentSteps.theOwnerIsLoggedInTOTheSystem();
+	        }
 	      
-	      logger.info("1.Add new appratment:\n2.Dashboard:");
-	      num = s.nextInt() ; 	      
-          if(num == 1){
-        	 Apartment ap = new Apartment(); 
-        	 
-             logger.info("Appartment id:");
-             String apartmentId =s.nextLine();
-             valid = digitsValidator(apartmentId);
-             while(!valid) {
-            	 logger.info("invalid rent !");
-            	 apartmentId=s.nextLine();
-            	 valid = digitsValidator(apartmentId);
-             }
-             ap.id = apartmentId ;
-         	 
-        	 
-        	 logger.info("photo link:");
-             String picture =s.nextLine();
-             valid = urlValidator(picture);     
-             while(!valid) {
-            	 logger.info("invalid link !");
-            	 picture =s.nextLine();
-            	 valid = urlValidator(picture);     
-             }
-             ap.picture = picture ; 
-
-             
-             logger.info("location:");
-             String location =s.nextLine();
-             ap.location = location ; 
-             
-             logger.info("rent:");
-             String rent =s.nextLine();
-             valid = digitsValidator(rent);
-             while(!valid) {
-            	 logger.info("invalid rent !");
-            	 rent=s.nextLine();
-            	 valid = digitsValidator(rent);
-             }
-             ap.rent = rent ;
-             
-             logger.info("services(only yes or no)\n");
+	        
+            AppartmentSteps.theOwnerHasAChoiceListWithTwoChoices();
+            num = s.nextInt();
+         
+            if(num == 1){
+            	AppartmentSteps.theOwnerSelectsAddNewAppartment();
+            } 
             
-             logger.info("water:");             
-             String water  =s.nextLine();
-             ynValid = yesNoValidator(water);
-             while(!ynValid) {
-            	 logger.info("invalid !");
-                  water  =s.nextLine();
-                 ynValid = yesNoValidator(water);
-
-             }
-             ap.water = water;
-
-             
-             logger.info("internet");     
-             String internet  =s.nextLine();
-             ynValid = yesNoValidator(internet);
-             while(!ynValid) {
-            	 logger.info("invalid !");
-                  internet  =s.nextLine();
-                  ynValid = yesNoValidator(internet);
-             }
-             ap.internet = internet;
-             
-           
-             logger.info("electricety:");    
-             String electricety  =s.nextLine();
-             ynValid = yesNoValidator(electricety);
-             while(!ynValid) {
-            	 logger.info("invalid !");
-             	  electricety  =s.nextLine();
-                  ynValid = yesNoValidator(electricety);
-             }
-             ap.electric = electricety;
-             
-             logger.info("#bathrooms:");
-             String bathrooms =s.nextLine();
-             valid = digitsValidator(bathrooms);
-             while(!valid) {
-            	 logger.info("invalid !");
-            	 bathrooms=s.nextLine();
-            	 valid = digitsValidator(bathrooms);
-             }
-             ap.bathrooms = bathrooms ;
-             
-             logger.info("#bedrooms:");
-             String bedrooms =s.nextLine();
-             valid = digitsValidator(bedrooms);
-             while(!valid) {
-            	 logger.info("invalid !");
-            	 bedrooms=s.nextLine();
-            	 valid = digitsValidator(bedrooms);
-             }
-             ap.bedrooms = bedrooms ;
-                          
-             logger.info("balcony:yes or no");
-             String balcony =s.nextLine();
-             ynValid = yesNoValidator(balcony);
-             while(!ynValid) {
-            	 logger.info("invalid !");
-             	 balcony  =s.nextLine();
-                 ynValid = yesNoValidator(balcony);
-             }
-             ap.balcony = balcony ;
-             
-             logger.info("floor:");
-             String floor  =s.nextLine();
-             valid = digitsValidator(floor);
-             while(!valid) {
-                logger.info("invalid !");
-            	 floor=s.nextLine();
-            	 valid = digitsValidator(floor);
-             }
-             ap.floor= floor ; 
-
-             logger.info("number of apartments in the floor:");
-             String numberOfAppartments =s.nextLine();
-             valid = digitsValidator( numberOfAppartments);
-             while(!valid) {
-            	 logger.info("invalid !");
-            	 numberOfAppartments = s.nextLine();
-            	 valid = digitsValidator( numberOfAppartments);
-             }
-             ap.numberOfApartmentsInFloor=  numberOfAppartments ;
-             
-             apartmentList.add(ap);
-
-             //inforamation for building
-             logger.info("building id:");
-             String buildingId =s.nextLine();
-             valid = digitsValidator(buildingId);
-             while(!valid) {
-            	 logger.info("invalid !");
-            	 buildingId=s.nextLine();
-            	 valid = digitsValidator(buildingId);
-             }            
-             ap.buildingId = buildingId ; 
- 
-             logger.info("building name:");
-             String buildingName =s.nextLine();
-
-             logger.info("building floors:");
-             String buildingFloors =s.nextLine();
-             valid = digitsValidator(buildingFloors);
-             while(!valid) {
-            	 logger.info("invalid !");
-            	 buildingFloors=s.nextLine();
-            	 valid = digitsValidator(buildingFloors);
-             }            
-    
-            // check if the building in the array list
-             buildingExists = false;
-             for (Apartment a :  apartmentList  ) {
-                 if (a.buildingId.equals(buildingId)) {
-                	 buildingExists = true;
-                     break;
-                 }
-             }
-            if(!buildingExists) {
-             Building bu = new Building();
-
-             bu.buildingId =buildingId ; 
-
-             bu.buildingName = buildingName ; 
-             
-             bu.buildingFloors = buildingFloors ;    
-             
-             buildingList.add(bu);
-            }
-        
-          
-             
-          }          
-          //tala				    	
+            
+            //tala				    	
 		    break;
 		} // end of case 3 for owner 
 	
