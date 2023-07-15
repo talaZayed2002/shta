@@ -46,7 +46,7 @@ public void ShowWhichTenant(String id,String name) {
 	for(int i=0;i<db_user.size();i++) {
 		if(db_user.get(i).id.equals(id)) {
 		
-			 logger.info("|"+  own.id                + "|"  + "|" + own.name             +"\n ");
+			 logger.info( own.id  +             own.name     +"\n ");
 			
 		}
 	}
@@ -112,13 +112,64 @@ public void addBuilding(Apartment obj) {
  
 	 for(int i=0;i<db_Apartment.size();i++) {
 		 db_Apartment.add(obj);
-		 logger.info("\n" +db_Apartment.get(i).floor);
+		// logger.info("\n" +db_Apartment.get(i).floor);
 	 }
 }
 
-public void ViewHousing() {
+
+public void ViewHousing2(Apartment obj1) {
 	 for(int i=0;i<db_Apartment.size();i++) {
-		 Apartment obj0=new Apartment();
+		 Apartment obj2=new Apartment();
+		 obj2.setId(obj1.id);
+		 obj2.setRent(obj1.rent);
+		 obj2.setLocation(obj1.location);
+		 obj2.setWater(obj1.water);
+		 obj2.setElectric(obj1.electric);
+		 obj2.setBalcony(obj1.balcony);
+		 obj2.setInternet(obj1.internet);
+		 obj2.setBathrooms(obj1.bathrooms);
+		 obj2.setBedrooms(obj1.bedrooms);
+		 obj2.setPicture(obj1.picture);
+		 obj2.setDate(obj1.date);
+		 obj2.setResidence_name(obj1.residence_name);
+		 obj2.setResidence_id(obj1.residence_id);
+		 obj2.setFloor(obj1.floor);
+		 obj2.setNumber_of_apartments(obj1.number_of_apartments);
+		 db_Apartment.add(obj2);
+		 if(obj1.id.equals(obj2.id)) {
+			 ViewHousing(obj1);
+		 }
+	 }
+	
+}
+
+
+
+
+public void ViewHousing(Apartment obj1) {
+	 for(int i=0;i<db_Apartment.size();i++) {
+		 Apartment obj2=new Apartment();
+		 obj2.setId(obj1.id);
+		 obj2.setRent(obj1.rent);
+		 obj2.setLocation(obj1.location);
+		 obj2.setWater(obj1.water);
+		 obj2.setElectric(obj1.electric);
+		 obj2.setBalcony(obj1.balcony);
+		 obj2.setInternet(obj1.internet);
+		 obj2.setBathrooms(obj1.bathrooms);
+		 obj2.setBedrooms(obj1.bedrooms);
+		 obj2.setPicture(obj1.picture);
+		 obj2.setDate(obj1.date);
+		 obj2.setResidence_name(obj1.residence_name);
+		 obj2.setResidence_id(obj1.residence_id);
+		 obj2.setFloor(obj1.floor);
+		 obj2.setNumber_of_apartments(obj1.number_of_apartments);
+		 db_Apartment.add(obj2);
+		/* logger.info("\n" +db_Apartment.get(i).id +db_Apartment.get(i).rent + db_Apartment.get(i).location+ 
+	 db_Apartment.get(i).water	 +  db_Apartment.get(i).electric+ db_Apartment.get(i).balcony + db_Apartment.get(i).internet+ 
+	 db_Apartment.get(i).balcony+ db_Apartment.get(i).bedrooms +db_Apartment.get(i).picture
+	 + db_Apartment.get(i).date+db_Apartment.get(i).residence_name +db_Apartment.get(i).residence_id+ 
+	 db_Apartment.get(i).floor+ db_Apartment.get(i).number_of_apartments);*/
 		 
 		 
 	 }

@@ -10,8 +10,6 @@ import java.util.logging.Logger;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
- 
-
 public class main {
 private static final Logger logger = Logger.getLogger(main.class.getName());
 static Scanner s=new Scanner(System.in);
@@ -551,14 +549,15 @@ static void TenantDashboard() {
 	  			"|                    "+"  |  "+"        "+"  |  "+"                   "+"        |\n "+
 	  		   	"|-----------------------------------------------------------------|\n ");
 	             
-	      db.ShowWhichTenant(user1.id,user1.name);
+	 db.ShowWhichTenant(user1.id,user1.name);
+	      
 	  			//"|  Owner name:" +ap.rent     +"|"        + "\n "+
 	  			//"|                    "+"  |  "+"        "+"  |  "+"                   "+"        |\n "	 
 	  			 
 	            
 	 
 
-// tenant book after owner show his apartments(book comes from the owner)
+// tenant book after owner show his apartments(book comes from the own
 	
   	 
 }
