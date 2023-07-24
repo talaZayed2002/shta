@@ -14,6 +14,7 @@ public class user {
 	   String phone;
 	   float point=0;
 	   int age;
+	 
 	
 	   String major;
 	   String type; // student or not .
@@ -39,6 +40,7 @@ public class user {
 			this.name="shafiqaTala";
 			this.major="Computer Engineering";
 			this.type="student";
+			
 		
 			userarray.add(this);
 			
@@ -67,9 +69,93 @@ public class user {
 	       userarray.add(this); // back plz !	
 			
 		}
-		
-		
+//String email,String password,String name,String type,String major)
+		public user( String email, String password, String name, String type, String major, int age,String id) {
+			super();
 
+			this.email = email;
+			this.name = name;
+			this.password = password;
+			this.age = age;
+			this.major = major;
+			this.type = type;
+			this.id=id;
+	
+		}
+
+		public String getAddress() {
+			return address;
+		}
+
+		public void setAddress(String address) {
+			this.address = address;
+		}
+
+		public String getEmail() {
+			return email;
+		}
+
+		public void setEmail(String email) {
+			this.email = email;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public String getId() {
+			return id;
+		}
+
+		public void setId(String id) {
+			this.id = id;
+		}
+
+		public String getPassword() {
+			return password;
+		}
+
+		public void setPassword(String password) {
+			this.password = password;
+		}
+
+		public String getPhone() {
+			return phone;
+		}
+
+		public void setPhone(String phone) {
+			this.phone = phone;
+		}
+
+		public int getAge() {
+			return age;
+		}
+
+		public void setAge(int age) {
+			this.age = age;
+		}
+
+		public String getMajor() {
+			return major;
+		}
+
+		public void setMajor(String major) {
+			this.major = major;
+		}
+
+		public boolean isLog() {
+			return log;
+		}
+
+		public void setLog(boolean log) {
+			this.log = log;
+		}
+		
+	
+		
 		
 	}
-

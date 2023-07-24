@@ -2,19 +2,19 @@ package mainclasses;
 import java.util.ArrayList;
 import java.util.List;
 public class Apartment {	
-	   String id;
-	   String picture;
-	    String rent;	  
-       String location; 	   
-	   String water;
-	   String electric;
-	   String balcony;
-	   String internet;
-	   String bathrooms;
-	   String bedrooms;
-       String floor; 
-       String numberOfApartmentsInFloor;       
-       String buildingId;
+	   private String id;
+	   private String picture;
+	   private String rent;	  
+	   private String location; 	   
+	   private String water;
+	   private String electric;
+	   private String balcony;
+	   private String internet;
+	   private String bathrooms;
+	   private String bedrooms;
+	   private String floor; 
+	   private String numberOfApartmentsInFloor;       
+	   private String buildingId;
 
 
 	   String date;
@@ -158,7 +158,7 @@ public class Apartment {
 	public void setDate(String date) {
 		this.date = date;
 	}
-     
+
 
 	   	  
    
