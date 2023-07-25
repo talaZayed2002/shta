@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Logger;
+
+
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -33,6 +35,9 @@ static int cost_furniture;
 static List <Apartment> db_Apartment=new ArrayList <Apartment>(); //new !
 static List <Building> db_building = new ArrayList <Building> ();
 static List <owner> db_owner   = new ArrayList <owner> ();
+static List <Advertisment> db_Advertisment   = new ArrayList <Advertisment> ();
+
+
 
   static void start1() {
 	  logger.info(" \n"+"                                    HELLO\n"+
@@ -56,7 +61,10 @@ static List <owner> db_owner   = new ArrayList <owner> ();
 			 }		
 		     logger.info("\nPlease enter your password:"); 
 		     password=s.nextLine();
-		     admin.check(email, password);		 
+		     admin.check(email, password);	
+		     
+		     admin.viewRequests();
+		     
 			break;
 		}// end case 1
 		
@@ -173,8 +181,8 @@ static void ViewForTenant() {
 	
 }
 
-
 static void ViewAdminMenu(){
+
 	logger.info(" \n                               Admin Menue  \n"+ 
 	"1-Scenes of requests for advertisement of housing and the ability to accept and reject it\n"+
     "2-Watching reservations via the system\n"+
@@ -203,6 +211,7 @@ static void ViewAdminMenu(){
      }
 	
 }
+
 static void ViewTenantMenuStudent(){
 	logger.info(" \n                               Tenant Menue - Student \n"+ 
 	"1-View the available housing contains Picture,Price,location, and services available in them\n"+
@@ -261,9 +270,6 @@ static void ViewTenantMenuStudent(){
 
 }
 
-
-
-
 static void TenantStart() {
 logger.info("Please enter your email as tenant:"); 
 email=s.nextLine();
@@ -282,7 +288,9 @@ user1.checkuser(email, password);
 
 ViewForTenant();
 }
+
 static void ViewTenantMenuNotStudent(){
+
 	logger.info(" \n                               Tenant Menue - Not Student \n"+ 
 	"1-View the available housing contains Picture,Price,location, and services available in them\n"+
     "2-Book according to the ID of the available housing\n"+
