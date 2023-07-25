@@ -115,5 +115,10 @@ public class owner {
 		this.phone = phone;
 	}
 
+	public static void signUp(String email2, String password2) {
+		// TODO Auto-generated method stub
+		
+	}
+
    	
 }

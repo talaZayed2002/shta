@@ -1,8 +1,8 @@
 package mainclasses;
 public class Building {
        private String buildingId ;
-      String buildingName;
-      String buildingFloors;
+      public String buildingName;
+      public  String buildingFloors;
 	public void setBuildingName(String buildingName) {
 		this.buildingName = buildingName;
 	}
@@ -15,5 +15,7 @@ public class Building {
 	public void setBuildingId(String buildingId) {
 		this.buildingId = buildingId;
 	}      
-	
+	public String getBuildingFloors() {
+		return buildingFloors;
+	}
 }
