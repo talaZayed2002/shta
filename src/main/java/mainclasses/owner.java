@@ -9,10 +9,10 @@ import java.util.List;
 public class owner {
 	   public String email;
        public  String password;     
-	   String address;
+	   private String address;
 	   private String name;
 	   private String id;	   
-	   String phone;
+	   private String phone;
 	
 	   owner o;
        static List <owner> ownerarray=new  ArrayList <owner> ();
@@ -39,6 +39,8 @@ public class owner {
 		
 		return 0;
 	}
+   	
+   	
    	public static boolean idAndPhoneValidator(String idAndPhone)
    	{
    		if(!digitsValidator(idAndPhone)) {
@@ -65,13 +67,15 @@ public class owner {
    	}
 
    	public static boolean yesNoValidator(String str){
-   		if( s.equals("yes") || s.equals("no")) {
+      
+   		if( str.equals("yes") || str.equals("no")) {
    			return true ;
    		}
    		else 
    			return false ;
    	}
 
+   	
    	public static boolean digitsValidator(String str) { 
    	    for (int i = 0; i < str.length(); i++) {
    	      if (!Character.isDigit(str.charAt(i))) { // in case that a char is NOT a digit, enter to the if code block
@@ -81,7 +85,7 @@ public class owner {
    	    	return true ; 
 
    	}
-
+   	
 	public String getId() {
 		return id;
 	}
