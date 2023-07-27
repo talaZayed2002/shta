@@ -55,59 +55,107 @@ public class admin {
 			  
 			    
 	         logger.info("to accept it or reject it first enter as an admin: , write the word(admin)");
-			    str = s.nextLine();
-			    
-			    if(str.equals("admin")) 
-			    {
-			    	main.ViewAdmin();
-			    	
-		      logger.info("\n now u can refused or accept it"+"\n");
-			    str = s.nextLine();
-			    while(!str.equals("a") && !str.equals("r")) {
-				    logger.info("invalid!");
-				    }
-		                  	
-			    if(str.equals("a")) 
-			    {
-			    
-			         ap.setAccept(true);
-			            logger.info("Accepted !!,now enter as an admin to book , please enter the word:  "+ "tenant"+"\n");
-					    str = s.nextLine();
-			          if (str.equals("tenant")) {
-			        	main.TenantStart(); 
-			        	
-			        	 
-			         }
-			    }
-			    
-			     
-			    
-			    else if (str.equals("r"))
-			    {	
-			    	logger.info("Refused,try to request again ");
-	                 Apartment.addApartment();
-	                 Apartment.viewDashboard();
-
-			    	
-			    }
-			    else {
-			    	logger.info("try again!");
-
-	        	 
-	         }
-			    }
-			    else {
-			    	logger.info("try again!");
-			    	}
-				  
+	      
+			   
 				    	/*for(int i=0;i<main.db_Apartment.size();i++) {
 		                      logger.info(main.db_Apartment.get(i).getRent());
 				    	}*/
     	//view all the information
 				    }
-			    			
+			
+			   main.ViewAdminMenu1();			
 		
 		}
+		
+		
+		
+		
+		
+		public static void viewRequestsForAdmin() {
+	
+			  Apartment apart1=new Apartment();
+
+				apart1.setBuildingId("5");
+			    apart1.setName("Alool-Abu Salha");
+			    apart1.setPicture("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.apartments.com%2Fblog%2Fwhat-is-a-luxury-apartment&psig=AOvVaw2mUHZKPS8Wd2_lmV74uosq&ust=1690538402290000&source=images&cd=vfe&opi=89978449&ved=0CA0QjRxqFwoTCICH27rQroADFQAAAAAdAAAAABAD");
+			    apart1.setRent("700 $");
+			    apart1.setLocation("Nablus");
+			    apart1.setFloor("5");
+			    apart1.setBalcony("no");
+			    apart1.setWater("yes");
+			    
+			    apart1.setElectric("yes");
+			    
+			    apart1.setnameـtenant("jebreel");
+			    
+				Apartment apart=new Apartment();
+				apart.setBuildingId("4");
+			    apart.setName("Alool-Abu Salha");
+			    apart.setPicture("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.apartments.com%2Fblog%2Fwhat-is-a-luxury-apartment&psig=AOvVaw2mUHZKPS8Wd2_lmV74uosq&ust=1690538402290000&source=images&cd=vfe&opi=89978449&ved=0CA0QjRxqFwoTCICH27rQroADFQAAAAAdAAAAABAD");
+			    apart.setRent("1000 $");
+			    apart.setLocation("Nablus-Rafidia");
+			    apart.setFloor("4");
+			    apart.setBalcony("yes");
+			    apart.setWater("yes");
+			    apart.setElectric("yes");
+			    apart.setInternet("yes");
+			    
+			    apart.setnameـtenant("khalid");
+			    
+			    
+				   main.db_Apartment.add(apart);
+				   
+				  
+				    apart1.setInternet("no");
+				    
+				   main.db_Apartment.add(apart1);
+
+			for(Apartment ap : main.db_Apartment) {
+			
+				Scanner s = new Scanner(System.in);
+	   
+			
+			 logger.info("| --------------------------------------------------------------------------------------------------- |"+"\n"+
+			            "|id-building"+" buliding name"+" picture"+" rent"+ " location" +" bedrooms"+" bathrooms"+" floor"+" Balcony"+"\n"+
+				         "|                                                                                                     |"+"\n"+
+				        "|   " +ap.getBuildingId()+"       "+ ap.getName()+"     "+ ap.getPicture()+"    "+ ap.getRent()+""+ap.getLocation()+"    "+ap.getBedrooms()+"     "+ap.getBathrooms()+
+				        "     "  +  ap.getFloor()+"  "+ ap.getBalcony()+	
+				        "                           |" + "\n"+ "Services :" +"Water:"+ap.getWater()+" , Electric : "+ap.getElectric()+" , Internet : "+ap.getInternet()+"\n"+
+				         "|                                                                                                     |"+"\n"
+			  
+				       + "| --------------------------------------------------------------------------------------------------- |"+"\n"+"|                                                                                                     |"+"\n"+
+"|   " +apart.getBuildingId()+"       "+ apart.getName()+"     "+ apart.getPicture()+"    "+ apart.getRent()+""+apart.getLocation()+"    "+apart.getBedrooms()+"     "+apart.getBathrooms()+
+"     "  +  apart.getFloor()+"  "+ apart.getBalcony()+	
+"                           |" + "\n"+ "Services :" +"Water:"+apart.getWater()+" , Electric : "+apart.getElectric()+" , Internet : "+apart.getInternet()+"\n"+
+"|                                                                                                     |"+"\n"
+
++ "| --------------------------------------------------------------------------------------------------- |"+"\n"
+			 
+	+ "|                                                                                                     |"+"\n"+
+	 "|   " +apart1.getBuildingId()+"       "+ apart1.getName()+"     "+ apart1.getPicture()+"    "+ apart1.getRent()+""+apart1.getLocation()+"    "+apart1.getBedrooms()+"     "+apart1.getBathrooms()+
+	 "     "  +  apart1.getFloor()+"  "+ apart1.getBalcony()+	
+	 "                           |" + "\n"+ "Services :" +"Water:"+apart1.getWater()+" , Electric : "+apart1.getElectric()+" , Internet : "+apart1.getInternet()+"\n"+
+	  "|                                                                                                     |"+"\n"
+
+	+ "| --------------------------------------------------------------------------------------------------- |"+"\n");
+			}
+			
+			
+			
+			
+			
+			
+			}
+			
+		    
+			
+			
+
+
+
+		
+		
+		
 }
 		/*public String getEmail() {
 			return email;

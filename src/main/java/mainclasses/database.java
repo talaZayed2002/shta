@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 public class database {
-	 List <user> db_user=new ArrayList <user> ();
+ public static List <user> db_user=new ArrayList <user> ();
 	 List <admin> db_order=new ArrayList <admin> ();
 	 List <owner> db_product=new ArrayList <owner>();
 	 List <Furniture> db_Furniture=new ArrayList <Furniture>();
@@ -27,17 +27,22 @@ public  void login(String email,String password)
 		if (!db_user.contains(obj1)) {
 			db_user.add(obj1);	
 		    logger.info("New tenant !"); 
-		for(int i=0;i<db_user.size();i++) {
+		//for(int i=0;i<db_user.size();i++) {
 			 // logger.info(db_user.get(i).email);
 			 // logger.info(db_user.get(i).password);		
-		}
+		//}
 		}
 	
 		
 		else
 			 logger.info("this tenant already exists!"); 
 
-			
+					
+	
+  
+     
+
+
 		}
 public void ShowWhichTenant(String id,String name) {
 	user use=new user();
@@ -58,14 +63,46 @@ public  void AddTenantStudent(String email,String password,String name,String ty
 	 if (!db_user.contains(obj0))
 	 {
 		    obj0.type="Student";
-			db_user.add(obj0);	
+			db_user.add(obj0);
+			
 		    logger.info("New tenant !");
+		    
+		    
+		    
+		    
      }
 		for(int i=0;i<db_user.size();i++) {
 			 //logger.info(db_user.get(i).type+db_user.get(i).password+db_user.get(i).name+db_user.get(i).major);		
 		}
 		
-	 
+		 user obj2=new user();
+	     obj2.setAddress("Awarta");
+	     obj2.setEmail("shaf@gmail.com");
+	     obj2.setName("SHAFIQA");
+	     obj2.setId("4");
+	     obj2.setAge(20);
+	     obj2.setMajor("CE");
+	     obj2.type="student";
+
+	   db_user.add(obj2);
+	     
+	  user obj3=new user();
+	  obj3.setAddress("Awarta");
+	  obj3.setEmail("AHMAD@GMAIL.COM");
+	  obj3.setName("AHMAD");
+	  obj3.setId("5");
+	  obj3.setAge(24);
+	  obj3.setMajor("MEDICINE");
+	  obj3.type="student";
+
+	  db_user.add(obj3);
+	  
+	  
+	  
+	  
+	  
+	  
+	  
 	 
 	
 	
@@ -116,7 +153,6 @@ public void addBuilding(Apartment obj) {
 	 }
 }
 
-
 public void ViewHousing2(Apartment obj1) {
 	 for(int i=0;i<db_Apartment.size();i++) {
 		 Apartment obj2=new Apartment();
@@ -131,10 +167,10 @@ public void ViewHousing2(Apartment obj1) {
 		 obj2.setBedrooms(obj1.bedrooms);
 		 obj2.setPicture(obj1.picture);
 		 obj2.setDate(obj1.date);
-		 obj2.setResidence_name(obj1.residence_name);
-		 obj2.setResidence_id(obj1.residence_id);
+		 //obj2.setResidence_name(obj1.residence_name);
+		 //obj2.setResidence_id(obj1.residence_id);
 		 obj2.setFloor(obj1.floor);
-		 obj2.setNumber_of_apartments(obj1.number_of_apartments);
+		// obj2.setNumber_of_apartments(obj1.number_of_apartments);
 		 db_Apartment.add(obj2);
 		 if(obj1.id.equals(obj2.id)) {
 			 ViewHousing(obj1);
@@ -160,20 +196,20 @@ public void ViewHousing(Apartment obj1) {
 		 obj2.setBedrooms(obj1.bedrooms);
 		 obj2.setPicture(obj1.picture);
 		 obj2.setDate(obj1.date);
-		 obj2.setResidence_name(obj1.residence_name);
-		 obj2.setResidence_id(obj1.residence_id);
+		// obj2.setResidence_name(obj1.residence_name);
+		 //obj2.setResidence_id(obj1.residence_id);
 		 obj2.setFloor(obj1.floor);
-		 obj2.setNumber_of_apartments(obj1.number_of_apartments);
+		// obj2.setNumber_of_apartments(obj1.number_of_apartments);
 		 db_Apartment.add(obj2);
-		/* logger.info("\n" +db_Apartment.get(i).id +db_Apartment.get(i).rent + db_Apartment.get(i).location+ 
+		/*logger.info("\n" +db_Apartment.get(i).id +db_Apartment.get(i).rent + db_Apartment.get(i).location+ 
 	 db_Apartment.get(i).water	 +  db_Apartment.get(i).electric+ db_Apartment.get(i).balcony + db_Apartment.get(i).internet+ 
 	 db_Apartment.get(i).balcony+ db_Apartment.get(i).bedrooms +db_Apartment.get(i).picture
 	 + db_Apartment.get(i).date+db_Apartment.get(i).residence_name +db_Apartment.get(i).residence_id+ 
 	 db_Apartment.get(i).floor+ db_Apartment.get(i).number_of_apartments);*/
 		 
-		 
 	 }
-	 
-}
+	 }
+	
+
 
 }

@@ -8,25 +8,37 @@ public class Apartment {
 	private static final Logger logger = Logger.getLogger(Apartment.class.getName());
 
 
-	   private String id;
-	   private String picture;
-	   private String rent;	  
-	   private String location; 	   
-	   private String water;
-	   private String electric;
-	   private String balcony;
-	   private String internet;
-	   private String bathrooms;
-	   private String bedrooms;
-	   private String floor; 
-	   private String numberOfApartmentsInFloor;       
-	   private String buildingId;
-	   private String name;
-		Boolean accept;
-
+	   public String id;
+	   public String picture;
+	   public String rent;	  
+	   public String location; 	   
+	   public String water;
+	   public String electric;
+	   public String balcony;
+	   public String internet;
+	   public String bathrooms;
+	   public String bedrooms;
+	   public String floor; 
+	   public String numberOfApartmentsInFloor;       
+	   public String buildingId;
+	   public String name;
+     	 public  boolean accept;
+		
+     	public String nameـtenant;
 	   String date;
 
 
+	   
+	   
+	   
+	   public String getnameـtenant() {
+			return nameـtenant;
+		}
+
+
+		public void setnameـtenant(String nameـtenant) {
+			this.nameـtenant = nameـtenant;
+		}
 	public String getId() {
 		return id;
 	}
@@ -174,11 +186,11 @@ public class Apartment {
 	public void setDate(String date) {
 		this.date = date;
 	}
-    public  Boolean getAccept() {
+    public  boolean getAccept() {
 		return accept;
 	}
 
-	public void setAccept(Boolean accept){
+	public void setAccept(boolean accept){
 		this.accept = accept;
 	}
     
@@ -395,7 +407,7 @@ public class Apartment {
 		String bathrooms ;
 		String bedrooms ;
 		String balcony ;
-		Boolean accept;
+		boolean accept;
 		
 		boolean valid ;
         boolean flag = true ; 

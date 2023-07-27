@@ -12,7 +12,7 @@ public class owner {
 	 public  String address;
 	   public String name;
 	    String id;	   
-	   String phone;
+	  public String phone;
 	
 	   owner o;
        static List <owner> ownerarray=new  ArrayList <owner> ();
@@ -111,8 +111,8 @@ public class owner {
 		return phone;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setPhone(String phone_number) {
+		this.phone = phone_number;
 	}
 
 	public static void signUp(String email2, String password2) {

@@ -18,6 +18,10 @@ public class user {
 	
 	   String major;
 	   String type; // student or not .
+	   
+	   
+	   
+	   public String book;
 	  
 		 user u1;
          static List <user> userarray=new  ArrayList <user> ();
@@ -155,7 +159,14 @@ public class user {
 			this.log = log;
 		}
 		
-	
+		public String getBook() {
+			return book;
+		}
+
+		public void setBook(String book) {
+			this.book = book;
+		}
+
 		
 		
 	}

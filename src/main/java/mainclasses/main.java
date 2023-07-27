@@ -20,6 +20,7 @@ static String major="0";
 static String type="0";
 static int age=0;
 static String id="0";
+static String phone_number="0";
 
 static user user1=new user();
 
@@ -36,6 +37,16 @@ static List <owner> db_owner   = new ArrayList <owner> ();
 public static List <Apartment> db_Advertisment   = new ArrayList <Apartment> ();
 
 
+
+
+public static boolean addNewApartmentChoice = false ;
+public static boolean modifyChoice = false  ;
+public static boolean dashboardChoice = false ;
+public static boolean validInformation = false ;
+public static boolean loginAdmin = false ;
+public static boolean requestPrinted = false ;
+public static boolean requestAccepted = false ;
+public static boolean requestRejected = false ;
   static void start1() {
 	  logger.info(" \n"+"                                    HELLO\n"+
 	  		      "                            WELCOME TO SAKANCOM \n"+
@@ -77,7 +88,12 @@ public static List <Apartment> db_Advertisment   = new ArrayList <Apartment> ();
 	         logger.info("\nPlease enter your password:"); 
 	         password=s.nextLine();	
 	         int res= owner.checkowner(email, password);   
-	      
+	         logger.info("\nPlease enter your phone number:"); 
+	         phone_number=s.nextLine();
+	         owner own=new owner();
+	         own.setPhone(phone_number);
+	         
+	         
 	         //sign up 
 	         if (res !=1) {//new user 	    	 
                  //owner.signUp(email , password);
@@ -151,7 +167,7 @@ static void ViewForTenant() {
     	
     	
     		db.AddTenantStudent(email,password,name,type,major,age,id);
-    		
+    	
     		
            ViewTenantMenuStudent();
               		
@@ -183,7 +199,6 @@ static void ViewForTenant() {
 static void ViewAdmin(){
 	 logger.info("Please enter your email as admin"); 
 	 email=s.nextLine();
-	 email=s.nextLine();
 	 while(!(email.contains("@"))) {
 			logger.info("Please this is not an invalid email\n reenter ur email"); 
 			email=s.nextLine();
@@ -193,39 +208,78 @@ static void ViewAdmin(){
      admin.check(email, password);
 
 }
-static void ViewAdminMenu(){
-	logger.info(" \n                               Admin Menue  \n"+ 
-	"1-Scenes of requests for advertisement of housing and the ability to accept and reject it\n"+
-    "2-Watching reservations via the system\n"+
-	"3-The ability to add and advertise housing units through the system\n");
-	 num=s.nextInt();
-     switch(num) {
-     case 1:
-     {
-    	 
-    	 
-    	break;
+static void ViewAdminMenu1(){
+
+				String str ;
+
+    	    str = s.nextLine();
+    	    str = s.nextLine();
+		    if(str.equals("admin")) 
+		    {
+		    	main.ViewAdmin();
+		    	logger.info(" \n                               Admin Menue  \n"+ 
+		    			"1-Scenes of requests for advertisement of housing and the ability to accept and reject it\n"+
+		    		    "2-Watching reservations via the system\n");
+		    	
+		    	
+		    	
+	num=s.nextInt();
+switch(num) {	
+		    case 1:
+		    {  	
+	       logger.info("\n now u can refused or accept it"+"\n");
+		    str = s.nextLine();
+		    str = s.nextLine();
+		    while(!str.equals("a") && !str.equals("r")) {
+			    logger.info("invalid!");
+			    }
+	                  	
+		    if(str.equals("a")) 
+		    {
+		    
+		         ap.setAccept(true);
+		            logger.info("Accepted !!,now enter as an admin to book , please enter the word:  "+ "tenant"+"\n");
+				    str = s.nextLine();
+		          if (str.equals("tenant")) {
+		        	main.TenantStart(); 
+		        	
+		        	 
+		         }
+		    }
+		    
+		     
+		    
+		    else if (str.equals("r"))
+		    {	
+		    	logger.info("Refused,try to request again ");
+              Apartment.addApartment();
+              Apartment.viewDashboard();
+
+		    	
+		    }
+		    else {
+		    	logger.info("try again!");
+
+     	 
       }
-     case 2:{
-    	 
-    	 break;
-     }
-     case 3:{
-    	 
-    	 break;
-     }
-     
-     default:
-     {
-    	 logger.info("The enteryis not correct!.");
-     }
-     }
+		    }
+		     
+		    	     case 2:{
+		    	    	 
+		    	     }
+		    	     default :
+		    	     {
+		    	    	 
+		    	     }
+		    }
+      
+		    }
 	
 }
 static void ViewTenantMenuStudent(){
 	logger.info(" \n                               Tenant Menue - Student \n"+ 
 	"1-View the available housing contains Picture,Price,location, and services available in them\n"+
-    "2-Book according to the ID of the available housing\n"+
+    "2-Book according to the ID of the available \\n"+
     "3-Info about this apartment contains people who live in it, such as ages and university majors\n"+
 	"4-Advertise furniture \n"+
 	"5-Your final book report (dashboard)\n");
@@ -236,8 +290,47 @@ static void ViewTenantMenuStudent(){
      switch(num) {
      case 1:
      {
+    	String str;
+    	admin.viewRequestsForAdmin();
     	 
-    	 
+	
+		logger.info("please write the number 2 to continue booking !\n");
+	    str = s.nextLine();
+	    str = s.nextLine();
+	    if(str.equals("2")) {
+	    logger.info("please write the number of the department u like!");
+	    str = s.nextLine();
+	    for(int i=0;i<db_Apartment.size();i++) {
+	    db_Apartment.get(i).setBuildingId(str);
+	  
+	    	
+		    logger.info("r u sure to book the department that has the id="+str+"\n");
+		    
+	    	user1.book=str;
+	    	
+	    	   Apartment foundApart = new Apartment() ;
+	           for (Apartment person : db_Apartment) {
+	               if (db_Apartment.get(i).getBuildingId().equals(str)) {
+	            	   foundApart = person;
+	            	   
+	            	   
+	            	   logger.info(user1.getName());	
+	            	   
+	            	   //logger.info(foundApart.getnameـtenant());	
+	            	   
+	                
+	               }
+	           }
+	    
+				// logger.info(database.db_user.get(i).type+  db_Apartment.get(i).getBuildingId());		
+			
+	     
+	    }
+
+
+	    }
+
+    	
     	break;
       } //end case 1
      case 2:
@@ -248,6 +341,7 @@ static void ViewTenantMenuStudent(){
      case 3:
      {
     	 
+         TenantDashboard();
 
   	 
     	 break;
@@ -270,12 +364,9 @@ static void ViewTenantMenuStudent(){
      }//end case 5
      
      default:
-     {
-    	 logger.info("The enteryis not correct!.");
-     }
+     {}
      }
 	
-     TenantDashboard();
 	
 
 }
