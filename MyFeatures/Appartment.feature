@@ -1,6 +1,6 @@
 Feature: owner add appartment
-
-Scenario: valid information
+ 
+Scenario: valid apartment inforamtion 
     Given the owner is logged in to the system
     And the owner has a choice list with two choices (add new appartment and dashboard)
     When the owner selects 'add new appartment' 
@@ -24,5 +24,11 @@ Scenario: invalid Onlydigits input
     And enter invalid numeric input
     Then the system should display an error message 
     And the system should read a new input
+
+Scenario: view dashboard
+    Given the owner is logged in to the system
+    When the owner selects 'Dashboard'
+    And  the dashboard will be printed 
+  
   
  

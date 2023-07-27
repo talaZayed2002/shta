@@ -21,6 +21,18 @@ public class Apartment {
 	   private String numberOfApartmentsInFloor;       
 	   private String buildingId;
 	   String date;
+       public boolean isAccept() {
+		return accept;
+	}
+
+
+	public void setAccept(boolean accept) {
+		this.accept = accept;
+	}
+
+
+	private boolean accept ; 
+
 
 
 	public String getId() {
@@ -187,7 +199,7 @@ public class Apartment {
         p =s.nextLine();
         ap.setPicture(p) ; 
         //validation
-     
+        
      
         logger.info("location:");
         location =s.nextLine();
@@ -282,7 +294,10 @@ public class Apartment {
     	   logger.info("invalid !");
     	   buildingFloors=s.nextLine();
     	   valid = owner.yesNoValidator(buildingFloors);
-       }            
+       }        
+       
+       //add apartment 
+       main.validInformation= true ;
        main.db_Apartment.add(ap);             
 
        // check if the building in the array list

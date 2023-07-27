@@ -3,6 +3,8 @@ package mainclasses;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
+import org.junit.Assert;
+
 
 public class admin {
 	private static final Logger logger = Logger.getLogger(admin.class.getName());
@@ -52,11 +54,13 @@ public class admin {
 			    	str = s.nextLine();
 				    if(str.equals("a")) {
 				    	ap.setAccept(true) ;
+				    	main.requestAccepted = true ;
 						Advertisment ad = new Advertisment(ap);
                         main.db_Advertisment.add(ad);
 				    }
 			    }
 			}
+			main.requestPrinted = true ;
 		}
 
 		/*public String getEmail() {

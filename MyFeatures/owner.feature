@@ -5,6 +5,8 @@ Scenario: valid information
     Then the owner enter valid information
     And the system store this owner	
  #phone and id 
+ 
+ 
 Scenario: invalid phone or id 
     Given the owner signed up with new email and password
 	  And add the owner enter invalid phone number or id

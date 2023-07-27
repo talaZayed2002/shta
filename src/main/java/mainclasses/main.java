@@ -4,13 +4,10 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
-
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
-public class main {	
-	
-	
+public class main {		
 private static final Logger logger = Logger.getLogger(main.class.getName());
 static Scanner s=new Scanner(System.in);
 static int num ;
@@ -25,7 +22,6 @@ static String id="0";
 
 static user user1=new user();
 
-
 static database db=new database();
 static Apartment ap = new Apartment();
 static String furniture;
@@ -37,10 +33,19 @@ static List <Building> db_building = new ArrayList <Building> ();
 static List <owner> db_owner   = new ArrayList <owner> ();
 static List <Advertisment> db_Advertisment   = new ArrayList <Advertisment> ();
 
+public static boolean addNewApartmentChoice = false ;
+public static boolean modifyChoice = false  ;
+public static boolean dashboardChoice = false ;
+public static boolean validInformation = false ;
+public static boolean loginAdmin = false ;
+public static boolean requestPrinted = false ;
+public static boolean requestAccepted = false ;
+public static boolean requestRejected = false ;
+
 
 
   static void start1() {
-	  logger.info(" \n"+"                                    HELLO\n"+
+	   logger.info(" \n"+"                                    HELLO\n"+
 	  		      "                            WELCOME TO SAKANCOM \n"+
                   "                    Please choose your type: \n" +
 			      "                    1-Admin \n"+
@@ -61,7 +66,11 @@ static List <Advertisment> db_Advertisment   = new ArrayList <Advertisment> ();
 			 }		
 		     logger.info("\nPlease enter your password:"); 
 		     password=s.nextLine();
-		     admin.check(email, password);	
+		     int r= admin.check(email, password);	
+		     if(r ==1) {
+		    	 loginAdmin  = true;
+		     }
+		     
 		     
 		     admin.viewRequests();
 		     
@@ -89,7 +98,7 @@ static List <Advertisment> db_Advertisment   = new ArrayList <Advertisment> ();
 	         int res= owner.checkowner(email, password);   
 	      
 	         //sign up 
-	         if (res !=1) {//new user 	    	 
+	         if (res !=1) {//new user 
                  owner.signUp(email , password);
 	         }
 	         //list
@@ -97,14 +106,17 @@ static List <Advertisment> db_Advertisment   = new ArrayList <Advertisment> ();
 	         num = s.nextInt() ;
 	         //add new apartment  	      
              if (num == 1){
-                 Apartment.addApartment();
+            	 addNewApartmentChoice = true ;
+            	 Apartment.addApartment();
              }
              //Dash board
              else if (num ==2) {
+            	dashboardChoice = true ;
                  Apartment.viewDashboard();
              }
              //modify
              else if (num ==3 ) {  
+            	 modifyChoice = true;
         	     Apartment.modify();
              } 
              break;
@@ -115,8 +127,6 @@ static List <Advertisment> db_Advertisment   = new ArrayList <Advertisment> ();
 		{
 			 logger.info("The enteryis not correct!.");
 		}//end default
-		
-			
 		
 		}//end switch
   }// end start1 function
@@ -352,14 +362,9 @@ static void TenantDashboard() {
 }
 
 public static void main(String[] args) 
-
-
 {
-
-	start1();
-
-		
-}//end public static void main(String[] args) 
+	start1();		
+}
 
 
 
