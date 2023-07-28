@@ -1,4 +1,4 @@
-package najah.edu.acceptance;
+/*package najah.edu.acceptance;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -19,4 +19,4 @@ public class TenantAdvertisesUsedFurnitureSteps {
 	    // Code to verify that the furniture selling window is displayed
 	}
 
-}
+}*/

@@ -17,19 +17,19 @@ static String email="0";
 static String password="0";
 static String name="0";
 static String major="0";
-static String type="0";
+public static String type="0";
 static int age=0;
 static String id="0";
 static String phone_number="0";
 
-static user user1=new user();
+public static user user1=new user();
 
 
 static database db=new database();
 static Apartment ap = new Apartment();
 static String furniture;
 static Furniture furniture1=new Furniture();
-static int cost_furniture;
+static String cost_furniture;
 
 static List <Apartment> db_Apartment=new ArrayList <Apartment>(); //new !
 static List <Building> db_building = new ArrayList <Building> ();
@@ -136,7 +136,7 @@ public static boolean requestRejected = false ;
 		}//end switch
   }// end start1 function
 
-static void ViewForTenant() {
+public static void ViewForTenant() {
 	logger.info("Please determine wheather u r a student or not \n 1-Student 2-Not a student"); 
      num=s.nextInt();
      switch(num) {
@@ -276,7 +276,7 @@ switch(num) {
 		    }
 	
 }
-static void ViewTenantMenuStudent(){
+public static void ViewTenantMenuStudent(){
 	logger.info(" \n                               Tenant Menue - Student \n"+ 
 	"1-View the available housing contains Picture,Price,location, and services available in them\n"+
     "2-Book according to the ID of the available \\n"+
@@ -302,32 +302,52 @@ static void ViewTenantMenuStudent(){
 	    str = s.nextLine();
 	    for(int i=0;i<db_Apartment.size();i++) {
 	    db_Apartment.get(i).setBuildingId(str);
-	  
+	        String d=str;
 	    	
-		    logger.info("r u sure to book the department that has the id="+str+"\n");
-		    
-	    	user1.book=str;
-	    	
-	    	   Apartment foundApart = new Apartment() ;
-	           for (Apartment person : db_Apartment) {
-	               if (db_Apartment.get(i).getBuildingId().equals(str)) {
-	            	   foundApart = person;
+		    logger.info("r u sure to book the department that has the id="+d+"\n" +
+		    "if yes write the word(yes)");
+		    str = s.nextLine();
+		    if(str.equals("yes")) {
+	    	//user1.book=str;
+		    logger.info("u have book the department with the id ="+d+"\n" +"Please write number :3 to view it's information"+"\n");
+		    str = s.nextLine();
+
+		    //Apartment foundApart = new Apartment() ;
+	                for (Apartment person : db_Apartment) {
+	               if (person.getBuildingId().equals(d)) {
 	            	   
-	            	   
-	            	   logger.info(user1.getName());	
-	            	   
-	            	   //logger.info(foundApart.getnameـtenant());	
-	            	   
+	               logger.info("The student/s in your apertment is/are with thier informations :\n"+
+	               "Name of the Apartment  Name of the student  Major of the student   age of the student"+"\n"
+	   +person.getName()+"                  "+ person.getnameـtenant()+"               "+person.getStudentMajor()+
+	   "                          "+person.getage_tenant());	 
+	            	
 	                
 	               }
 	           }
 	    
-				// logger.info(database.db_user.get(i).type+  db_Apartment.get(i).getBuildingId());		
+		    }	// logger.info(database.db_user.get(i).type+  db_Apartment.get(i).getBuildingId());		
 			
-	     
+		    else {
+			    logger.info("choose another department to book ! :) \n");
+
+		    }
+            break;
+
 	    }
 
-
+	    logger.info("Please write what type of furniture u wnat to adertise \n");
+    	 furniture=s.nextLine();
+    	 furniture=s.nextLine();
+    	 furniture1.type1=furniture;
+    	 logger.info("Please write the cost \n");
+         cost_furniture=s.nextLine();
+         furniture1.cost=cost_furniture;
+         db.addFurniture(furniture,cost_furniture);
+	    
+	    
+	    
+	    
+	    
 	    }
 
     	
@@ -348,14 +368,7 @@ static void ViewTenantMenuStudent(){
      }//end case 3
       case 4:
       {
-    	  logger.info("Please write what type of furniture u wnat to adertise \n");
-     	 furniture=s.nextLine();
-     	 furniture=s.nextLine();
-     	 furniture1.type1=furniture;
-     	 logger.info("Please write the cost \n");
-          cost_furniture=s.nextInt();
-          furniture1.cost=cost_furniture;
-          db.addFurniture(furniture,cost_furniture);
+    	 
     	 break;
      }//end case 4
      case 5:{

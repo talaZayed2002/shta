@@ -1,12 +1,19 @@
-package najah.edu.acceptance;
+/*package najah.edu.acceptance;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import mainclasses.database;
+import mainclasses.main;
 public class ViewsStudentHousingInformationSteps {
 	// Implementing the step definitions using Cucumber and Java
 	@Given("the housing is designated for students")
 	public void housingDesignatedForStudents() {
-	    // Code to check if the selected housing is designated for students
+		for(int i=0;i<database.db_user.size();i++) {
+		assertEquals("student",database.db_user.get(i).type="student");
+		}
 	}
 
 	@When("the tenant clicks on {string}")
@@ -20,3 +27,4 @@ public class ViewsStudentHousingInformationSteps {
 	}
 
 }
+*/

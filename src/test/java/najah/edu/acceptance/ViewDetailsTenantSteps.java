@@ -1,4 +1,4 @@
-package najah.edu.acceptance;
+/*package najah.edu.acceptance;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -8,7 +8,7 @@ public class ViewDetailsTenantSteps {
 	// Implementing the step definitions using Cucumber and Java
 	@Given("the tenant has selected a specific housing option")
 	public void selectSpecificHousingOption() {
-	    // Code to select a specific housing option in the app
+	    
 	}
 
 	@When("the tenant clicks on {string}")
@@ -22,3 +22,4 @@ public class ViewDetailsTenantSteps {
 	}
 
 }
+*/

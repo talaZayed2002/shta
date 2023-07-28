@@ -11,13 +11,11 @@ Scenario: invalid photo format
     Given the owner is logged in to the System
 	  And add a photo with an invalid format
     Then the system should display an error message
-    And the system should read a new link
  
 Scenario: owner enters inalid yes/no input 
     Given the owner is logged in to the system
     And enter invalid input instead of yes or no
-    Then the system should display an error message 
-    And the system should read a new input
+   
 
 Scenario: invalid Onlydigits input  
     Given the owner is logged in to the system

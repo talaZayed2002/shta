@@ -17,7 +17,7 @@ public class user {
 	 
 	
 	   String major;
-	   String type; // student or not .
+	   public String type; // student or not .
 	   
 	   
 	   

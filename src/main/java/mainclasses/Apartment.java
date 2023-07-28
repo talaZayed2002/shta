@@ -23,12 +23,31 @@ public class Apartment {
 	   public String buildingId;
 	   public String name;
      	 public  boolean accept;
-		
+     	public String StudentMajor;
      	public String nameـtenant;
+     	public String age_tenant;
 	   String date;
 
 
 	   
+	   
+	   public String getage_tenant() {
+			return age_tenant;
+		}
+
+
+		public void setage_tenant(String age_tenant) {
+			this.age_tenant = age_tenant;
+		}
+	   
+	   public String getStudentMajor() {
+			return StudentMajor;
+		}
+
+
+		public void setStudentMajor(String StudentMajor) {
+			this.StudentMajor = StudentMajor;
+		}
 	   
 	   
 	   public String getnameـtenant() {

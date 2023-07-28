@@ -76,7 +76,7 @@ public class admin {
 			  Apartment apart1=new Apartment();
 
 				apart1.setBuildingId("5");
-			    apart1.setName("Alool-Abu Salha");
+			    apart1.setName("Abu Salha");
 			    apart1.setPicture("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.apartments.com%2Fblog%2Fwhat-is-a-luxury-apartment&psig=AOvVaw2mUHZKPS8Wd2_lmV74uosq&ust=1690538402290000&source=images&cd=vfe&opi=89978449&ved=0CA0QjRxqFwoTCICH27rQroADFQAAAAAdAAAAABAD");
 			    apart1.setRent("700 $");
 			    apart1.setLocation("Nablus");
@@ -87,7 +87,30 @@ public class admin {
 			    apart1.setElectric("yes");
 			    
 			    apart1.setnameـtenant("jebreel");
+			    apart1.setStudentMajor("CAP");
+			    apart1.setage_tenant("21");
 			    
+			    
+				  Apartment apart0=new Apartment();
+
+					apart0.setBuildingId("5");
+				    apart0.setName("Abu Salha");
+				    apart0.setPicture("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.apartments.com%2Fblog%2Fwhat-is-a-luxury-apartment&psig=AOvVaw2mUHZKPS8Wd2_lmV74uosq&ust=1690538402290000&source=images&cd=vfe&opi=89978449&ved=0CA0QjRxqFwoTCICH27rQroADFQAAAAAdAAAAABAD");
+				    apart0.setRent("700 $");
+				    apart0.setLocation("Nablus");
+				    apart0.setFloor("5");
+				    apart0.setBalcony("no");
+				    apart0.setWater("yes");
+				    
+				    apart0.setElectric("yes");
+				    
+				    apart0.setnameـtenant("Saleh");
+				    apart0.setStudentMajor("Art");
+				    apart0.setage_tenant("20");
+				    apart0.setInternet("no");
+				    
+				    main.db_Apartment.add(apart0);
+			
 				Apartment apart=new Apartment();
 				apart.setBuildingId("4");
 			    apart.setName("Alool-Abu Salha");
@@ -99,8 +122,9 @@ public class admin {
 			    apart.setWater("yes");
 			    apart.setElectric("yes");
 			    apart.setInternet("yes");
-			    
 			    apart.setnameـtenant("khalid");
+			    apart.setStudentMajor("Medecine");
+			    apart.setage_tenant("23");
 			    
 			    
 				   main.db_Apartment.add(apart);
@@ -138,11 +162,15 @@ public class admin {
 	  "|                                                                                                     |"+"\n"
 
 	+ "| --------------------------------------------------------------------------------------------------- |"+"\n");
+			 
+			 
+			 
+			 break;
 			}
 			
 			
 			
-			
+		
 			
 			
 			}

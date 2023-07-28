@@ -15,10 +15,26 @@ import mainclasses.main;
 import mainclasses.owner;
 public class AppartmentSteps {
     static boolean b = false;
+    static boolean flag;
+    
+    
+    
+    
     @Given("the owner is logged in to the system")
     public static void theOwnerIsLoggedInToTheSystem() {
-        Assert.assertTrue( LoginFeatureSteps.flag_login);
+        Assert.assertTrue( flag);
     }
+
+
+
+
+@Then("the system should display an error message")
+public void theSystemShouldDisplayAnErrorMessage() {
+    // Write code here that turns the phrase above into concrete actions
+    Assert.assertTrue( LoginFeatureSteps.flag_login);
+
+}
+
 
     @When("the owner selects add new apartment")
     public static void theOwnerSelectsAddNewApartment() {
@@ -54,4 +70,10 @@ public class AppartmentSteps {
     public static void theOwnerSelectsModify() {
         Assert.assertTrue(main.modifyChoice= true );
     }    
-  }
+}
+
+
+
+
+
+

@@ -126,7 +126,7 @@ public  void AddTenantNotStudent(String email,String password,String name,String
 		}
 }
 
-public void addFurniture(String furniture,int cost_furniture) {
+public void addFurniture(String furniture,String cost_furniture) {
 	Furniture obj0=new Furniture();
 			obj0.type1=furniture;
 			obj0.cost=cost_furniture;
