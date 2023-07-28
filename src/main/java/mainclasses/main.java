@@ -334,7 +334,15 @@ public static void ViewTenantMenuStudent(){
             break;
 
 	    }
+	    String f;
+	
 
+	    logger.info("please enter(4) if u want to advartise a furniture ");
+	    
+	    f=s.nextLine();
+	    if(f.equals("4")) {
+	    	
+	    
 	    logger.info("Please write what type of furniture u wnat to adertise \n");
     	 furniture=s.nextLine();
     	 furniture=s.nextLine();
@@ -343,10 +351,14 @@ public static void ViewTenantMenuStudent(){
          cost_furniture=s.nextLine();
          furniture1.cost=cost_furniture;
          db.addFurniture(furniture,cost_furniture);
+	    }
 	    
-	    
-	    
-	    
+    	 logger.info("Please enter (5)to show ur final dashboard :  \n");
+    	 String s1;
+    	    s1=s.nextLine();
+    	    if(s1.equals("5")) {
+    	  TenantDashboard();}
+	    ///TALA 
 	    
 	    }
 
