@@ -6,9 +6,8 @@ import java.util.List;
 import java.util.logging.Logger;
 public class Database {
    static final  List <user> dbuser=new ArrayList <user> ();
-	 List <owner> db_product=new ArrayList <owner>();
-	 List <Furniture> db_Furniture=new ArrayList <Furniture>();
-	 List <Apartment> db_Apartment=new ArrayList <Apartment>();
+	 List <Furniture> dbfurniture=new ArrayList <Furniture>();
+	 List <Apartment> dbapartment=new ArrayList <Apartment>();
  private static final Logger logger = Logger.getLogger(Database.class.getName());
 
 public  void login(String email,String password)
@@ -128,12 +127,12 @@ public void addFurniture(String furniture,String cost_furniture) {
 	Furniture obj0=new Furniture();
 			obj0.type1=furniture;
 			obj0.cost=cost_furniture;
-	 if (!db_Furniture.contains(obj0))
+	 if (!dbfurniture.contains(obj0))
 		 
 	 {
-		 db_Furniture.add(obj0);
+		 dbfurniture.add(obj0);
 		 
-		 for(int i=0;i<db_Furniture.size();i++) {
+		 for(int i=0;i<dbfurniture.size();i++) {
 			// logger.info(db_Furniture.get(i).type1+db_Furniture.get(i).cost);
 	 }
 	 }
@@ -145,14 +144,14 @@ public void addFurniture(String furniture,String cost_furniture) {
 
 public void addBuilding(Apartment obj) {
  
-	 for(int i=0;i<db_Apartment.size();i++) {
-		 db_Apartment.add(obj);
+	 for(int i=0;i<dbapartment.size();i++) {
+		 dbapartment.add(obj);
 		// logger.info("\n" +db_Apartment.get(i).floor);
 	 }
 }
 
 public void ViewHousing2(Apartment obj1) {
-	 for(int i=0;i<db_Apartment.size();i++) {
+	 for(int i=0;i<dbapartment.size();i++) {
 		 Apartment obj2=new Apartment();
 		 obj2.setId(obj1.id);
 		 obj2.setRent(obj1.rent);
@@ -169,7 +168,7 @@ public void ViewHousing2(Apartment obj1) {
 		 //obj2.setResidence_id(obj1.residence_id);
 		 obj2.setFloor(obj1.floor);
 		// obj2.setNumber_of_apartments(obj1.number_of_apartments);
-		 db_Apartment.add(obj2);
+		 dbapartment.add(obj2);
 		 if(obj1.id.equals(obj2.id)) {
 			 ViewHousing(obj1);
 		 }
@@ -181,7 +180,7 @@ public void ViewHousing2(Apartment obj1) {
 
 
 public void ViewHousing(Apartment obj1) {
-	 for(int i=0;i<db_Apartment.size();i++) {
+	 for(int i=0;i<dbapartment.size();i++) {
 		 Apartment obj2=new Apartment();
 		 obj2.setId(obj1.id);
 		 obj2.setRent(obj1.rent);
@@ -198,7 +197,7 @@ public void ViewHousing(Apartment obj1) {
 		 //obj2.setResidence_id(obj1.residence_id);
 		 obj2.setFloor(obj1.floor);
 		// obj2.setNumber_of_apartments(obj1.number_of_apartments);
-		 db_Apartment.add(obj2);
+		 dbapartment.add(obj2);
 		/*logger.info("\n" +db_Apartment.get(i).id +db_Apartment.get(i).rent + db_Apartment.get(i).location+ 
 	 db_Apartment.get(i).water	 +  db_Apartment.get(i).electric+ db_Apartment.get(i).balcony + db_Apartment.get(i).internet+ 
 	 db_Apartment.get(i).balcony+ db_Apartment.get(i).bedrooms +db_Apartment.get(i).picture
