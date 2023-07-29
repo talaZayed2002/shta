@@ -359,7 +359,7 @@ public class Apartment {
 		Scanner s = new Scanner(System.in);
 		
        //dash board for owner -start
-       String currentEnterdBuildingfloors = null ;            
+       String currentEnterdBuildingfloors = " ";            
        logger.info("------------------------------------ MY Dash Board ------------------------------------\n");
        //display buildings
        logger.info("Buildings:\n");
@@ -445,7 +445,7 @@ public class Apartment {
 
         for (Apartment ap : main.db_Apartment  ) {
         	
-        	if(ap.getId() == currentId ) {
+        	if(ap.getId().equals(currentId) ) {
                 flag = true ; 
         		logger.info("1.rent"+"\n"+"2.location"+"\n"+"3.picture"+"\n"+"4.internet"+"\n"+"5.water"+"\n"+"6.electric"+"\n"+"7.balcony"+"\n"
         	                +"8.bathrooms"+"\n"+"9.bedrooms"+"\n");  

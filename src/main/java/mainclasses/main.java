@@ -331,7 +331,7 @@ public static void ViewTenantMenuStudent(){
 			    logger.info("choose another department to book ! :) \n");
 
 		    }
-            break;
+           // break;
 
 	    }
 	    String f;
