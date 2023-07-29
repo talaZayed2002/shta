@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.logging.Logger;
 public class Database {
  public static List <user> db_user=new ArrayList <user> ();
-	// List <admin> db_user=new ArrayList <admin> ();
 	 List <owner> db_product=new ArrayList <owner>();
 	 List <Furniture> db_Furniture=new ArrayList <Furniture>();
 	 List <Apartment> db_Apartment=new ArrayList <Apartment>();
@@ -29,10 +28,7 @@ public  void login(String email,String password)
 		if (!db_user.contains(obj1)) {
 			db_user.add(obj1);	
 		    logger.info("New tenant !"); 
-		//for(int i=0;i<db_user.size();i++) {
-			 // logger.info(db_user.get(i).email);
-			 // logger.info(db_user.get(i).password);		
-		//}
+	
 		}
 	
 		
