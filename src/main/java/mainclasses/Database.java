@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 public class Database {
-   static final  List <user> db_user=new ArrayList <user> ();
+   static final  List <user> dbuser=new ArrayList <user> ();
 	 List <owner> db_product=new ArrayList <owner>();
 	 List <Furniture> db_Furniture=new ArrayList <Furniture>();
 	 List <Apartment> db_Apartment=new ArrayList <Apartment>();
@@ -14,10 +14,10 @@ public class Database {
 public  void login(String email,String password)
 		{ 
     user obj0=new user();
-    db_user.add(obj0);
+    dbuser.add(obj0);
  	obj0.email="haya@gmail.com";
 	obj0.password="haya123";
-	db_user.add(obj0);	
+	dbuser.add(obj0);	
 	
 	  user obj1=new user();
 
@@ -25,8 +25,8 @@ public  void login(String email,String password)
 			obj1.password=password;
 			
 
-		if (!db_user.contains(obj1)) {
-			db_user.add(obj1);	
+		if (!dbuser.contains(obj1)) {
+			dbuser.add(obj1);	
 		    logger.info("New tenant !"); 
 	
 		}
@@ -46,8 +46,8 @@ public void ShowWhichTenant(String id,String name) {
 	user use=new user();
 	owner own=new owner();
 	Apartment apart =new Apartment();
-	for(int i=0;i<db_user.size();i++) {
-		if(db_user.get(i).id.equals(id)) {
+	for(int i=0;i<dbuser.size();i++) {
+		if(dbuser.get(i).id.equals(id)) {
 		
 			 logger.info( own.id  +             own.name     +"\n ");
 			
@@ -58,10 +58,10 @@ public void ShowWhichTenant(String id,String name) {
 public  void AddTenantStudent(String email,String password,String name,String type,String major,int age,String id)
 {
 	user obj0=new user(email, password, name, type, major, age,id);
-	 if (!db_user.contains(obj0))
+	 if (!dbuser.contains(obj0))
 	 {
 		    obj0.type="Student";
-			db_user.add(obj0);
+		    dbuser.add(obj0);
 			
 		    logger.info("New tenant !");
 		    
@@ -69,7 +69,7 @@ public  void AddTenantStudent(String email,String password,String name,String ty
 		    
 		    
      }
-		for(int i=0;i<db_user.size();i++) {
+		for(int i=0;i<dbuser.size();i++) {
 			 //logger.info(db_user.get(i).type+db_user.get(i).password+db_user.get(i).name+db_user.get(i).major);		
 		}
 		
@@ -82,7 +82,7 @@ public  void AddTenantStudent(String email,String password,String name,String ty
 	     obj2.setMajor("CE");
 	     obj2.type="student";
 
-	   db_user.add(obj2);
+	     dbuser.add(obj2);
 	     
 	  user obj3=new user();
 	  obj3.setAddress("Awarta");
@@ -93,7 +93,7 @@ public  void AddTenantStudent(String email,String password,String name,String ty
 	  obj3.setMajor("MEDICINE");
 	  obj3.type="student";
 
-	  db_user.add(obj3);
+	  dbuser.add(obj3);
 	  
 	  
 	  
@@ -108,18 +108,18 @@ public  void AddTenantStudent(String email,String password,String name,String ty
 public  void AddTenantNotStudent(String email,String password,String name,String type,String major,int age,String id)
 {
 	user obj0=new user(email, password, name, type, major, age,id);
-	 if (!db_user.contains(obj0))
+	 if (!dbuser.contains(obj0))
 	 {
 		    obj0.type="Not Student";
 		    obj0.major="";
 		    obj0.age=0;
 		    obj0.name="";
 		    
-			db_user.add(obj0);	
+		    dbuser.add(obj0);	
 			
 		    logger.info("New tenant !");
     }
-		for(int i=0;i<db_user.size();i++) {
+		for(int i=0;i<dbuser.size();i++) {
 			 //logger.info(db_user.get(i).type+db_user.get(i).password+db_user.get(i).name+db_user.get(i).major);		
 		}
 }
