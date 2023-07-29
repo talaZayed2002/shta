@@ -25,7 +25,7 @@ static String phone_number="0";
 public static user user1=new user();
 
 
-static database db=new database();
+static Database db=new Database();
 static Apartment ap = new Apartment();
 static String furniture;
 static Furniture furniture1=new Furniture();

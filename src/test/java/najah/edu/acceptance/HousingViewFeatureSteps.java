@@ -12,7 +12,7 @@ import io.cucumber.java.en.When;
 import mainclasses.Apartment;
 import mainclasses.Building;
 import mainclasses.admin;
-import mainclasses.database;
+import mainclasses.Database;
 import mainclasses.owner;
 import mainclasses.user;
 
@@ -24,7 +24,7 @@ public class HousingViewFeatureSteps {
 	   static user user;
 		
 	  static boolean flag_housing;
-	  static database db=new database();
+	  static Database db=new Database();
 
 	   Building build;
 	   static List <Apartment> db_Apartment=new ArrayList <Apartment>(); 

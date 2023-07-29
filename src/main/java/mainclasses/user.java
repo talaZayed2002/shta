@@ -26,7 +26,7 @@ public class user {
 		 user u1;
          static List <user> userarray=new  ArrayList <user> ();
 		 boolean log=false;
-		 static database db=new database();
+		 static Database db=new Database();
 			
 	// tenant =user	 
 		 public user()
