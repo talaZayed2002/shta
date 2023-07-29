@@ -376,7 +376,7 @@ public class Apartment {
     	  if( currentEnterdBuildingId.equals(buildingArray[i].getBuildingId())) {
     	    	currentEnterdBuildingfloors = buildingArray[i].getBuildingFloors();            		
     	  }     
-    	  else if (i==c && currentEnterdBuildingfloors.equals(null)) {
+    	  else {
     	        logger.info("invalid building id !");
     	  }
        }            
