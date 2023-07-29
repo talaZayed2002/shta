@@ -60,40 +60,35 @@ public class OwnerSteps {
 
 
 
-    @Given("the owner signed up")
-    public void ownerSignedUp() {
-        // Implement the code for owner sign up
-    }
 
-    @And("enter your information statement is printed")
-    public void enterInfoStatementPrinted() {
-        // Implement the code to print the information statement
-    }
+@Given("the owner is logged in to the system")
+public void theOwnerIsLoggedInToTheSystem() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Given("the owner has a choice list with two choices \\(add new appartment and dashboard)")
+public void theOwnerHasAChoiceListWithTwoChoicesAddNewAppartmentAndDashboard() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the owner selects {string}")
+public void theOwnerSelects(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the owner enter valid information")
+public void theOwnerEnterValidInformation() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the system store this appartment")
+public void theSystemStoreThisAppartment() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
 
-    @Then("the owner enter valid information")
-    public void ownerEntersValidInformation() {
-        // Implement the code for entering valid information
-    }
 
-    @And("the system store this owner")
-    public void systemStoresOwner() {
-        // Implement the code to store the owner's information
-    }
 
-    @And("add the owner enter invalid phone number or id")
-    public void addOwnerEntersInvalidPhoneOrId() {
-        // Implement the code for entering invalid phone number or id
-    }
-
-    @Then("the system should display an error message")
-    public void systemDisplaysErrorMessage() {
-        // Implement the code to display an error message
-    }
-
-    @And("the system should read a new phone number or id")
-    public void systemReadsNewPhoneNumberOrId() {
-        // Implement the code to read a new phone number or id
-    }
 }*/
 
 

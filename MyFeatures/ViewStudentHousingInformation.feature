@@ -22,6 +22,6 @@ Feature: Tenant views student housing
   @tag1
  Scenario: Tenant views student housing information
   Given the housing is designated for students
-  When the tenant clicks on "View Student Data"
+  When the tenant clicks on "string"
   Then general data about the current occupants is displayed, including ages and university majors
 

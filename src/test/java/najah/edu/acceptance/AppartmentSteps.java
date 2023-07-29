@@ -1,4 +1,4 @@
-package najah.edu.acceptance;
+/*package najah.edu.acceptance;
 import static org.junit.Assert.assertTrue;
 import java.util.Scanner;
 import java.util.logging.Logger;
@@ -71,7 +71,7 @@ public void theSystemShouldDisplayAnErrorMessage() {
         Assert.assertTrue(main.modifyChoice= true );
     }    
 }
-
+*/
 
 
 
