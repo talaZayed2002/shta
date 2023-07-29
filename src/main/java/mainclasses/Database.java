@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 public class Database {
- public static List <user> db_user=new ArrayList <user> ();
+     List <user> db_user=new ArrayList <user> ();
 	 List <owner> db_product=new ArrayList <owner>();
 	 List <Furniture> db_Furniture=new ArrayList <Furniture>();
 	 List <Apartment> db_Apartment=new ArrayList <Apartment>();
